@@ -10,6 +10,7 @@ function Qibla({ onClose }) {
   const [userLocation, setUserLocation] = useState(null);
   const [needsPermission, setNeedsPermission] = useState(true);
   const [orientationPermission, setOrientationPermission] = useState(false);
+  const [isFacingQibla, setIsFacingQibla] = useState(false);
 
   // Kaaba coordinates
   const KAABA_LAT = 21.4225;
@@ -94,7 +95,7 @@ function Qibla({ onClose }) {
   };
 
   useEffect(() => {
-    if (!orientationPermission) return;
+    if (!orientationPermission || qiblaDirection === null) return;
 
     // Get device orientation (compass)
     const handleOrientation = (event) => {
@@ -112,6 +113,11 @@ function Qibla({ onClose }) {
       }
       
       setCurrentHeading(heading);
+      
+      // Check if facing Qibla (within 10 degrees tolerance)
+      const difference = Math.abs(heading - qiblaDirection);
+      const normalizedDiff = difference > 180 ? 360 - difference : difference;
+      setIsFacingQibla(normalizedDiff < 10);
     };
 
     if (window.DeviceOrientationEvent) {
@@ -123,7 +129,7 @@ function Qibla({ onClose }) {
       window.removeEventListener('deviceorientation', handleOrientation, true);
       window.removeEventListener('deviceorientationabsolute', handleOrientation, true);
     };
-  }, [orientationPermission]);
+  }, [orientationPermission, qiblaDirection]);
 
   const getDistance = () => {
     if (!userLocation) return null;
@@ -210,7 +216,12 @@ function Qibla({ onClose }) {
                 </div>
               </div>
 
-              <div className="compass-container">
+              <div className={`compass-container ${isFacingQibla ? 'facing-qibla' : ''}`}>
+                {/* Fixed white line marking Qibla direction */}
+                <div className="qibla-marker">
+                  <div className="qibla-line"></div>
+                </div>
+                
                 {/* Rotating compass background */}
                 <div 
                   className="compass-circle"
@@ -241,7 +252,7 @@ function Qibla({ onClose }) {
                   style={{ transform: `rotate(${qiblaDirection - currentHeading}deg)` }}
                 >
                   <div className="needle-north">
-                    <div className="kaaba-icon">🕋</div>
+                    <div className="needle-kaaba">🕋</div>
                   </div>
                   <div className="needle-south"></div>
                 </div>

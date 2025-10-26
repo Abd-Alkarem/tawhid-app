@@ -227,62 +227,151 @@
   width: 320px;
   height: 320px;
   margin: 0 auto 24px;
+  transition: all 0.5s ease;
+}
+
+/* Blue glow when facing Qibla */
+.compass-container.facing-qibla {
+  filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.8));
+}
+
+.compass-container.facing-qibla .compass-circle {
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(147, 197, 253, 0.9) 0%, transparent 50%),
+    repeating-conic-gradient(
+      from 0deg,
+      #dbeafe 0deg 15deg,
+      #bfdbfe 15deg 30deg
+    ),
+    linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
+  box-shadow: 
+    inset 0 2px 8px rgba(59, 130, 246, 0.2),
+    0 0 0 8px rgba(96, 165, 250, 0.5),
+    0 8px 32px rgba(59, 130, 246, 0.4);
+}
+
+/* Qibla direction marker - fixed white line at top */
+.qibla-marker {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.qibla-line {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    #ffffff 20%,
+    #ffffff 80%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.4);
+  animation: qibla-pulse 2s ease-in-out infinite;
+}
+
+@keyframes qibla-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 
+      0 0 15px rgba(255, 255, 255, 1),
+      0 0 30px rgba(255, 255, 255, 0.6);
+  }
 }
 
 .compass-circle {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 3px solid #cbd5e1;
+  border: 3px solid #e2e8f0;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%);
+  background: 
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 1) 100%);
   transition: transform 0.5s ease-out;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    0 0 0 8px rgba(203, 213, 225, 0.3),
-    0 8px 24px rgba(0, 0, 0, 0.1);
+    inset 0 3px 10px rgba(0, 0, 0, 0.03),
+    0 0 0 6px rgba(226, 232, 240, 0.3),
+    0 10px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Subtle Islamic pattern overlay */
+.compass-circle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(0, 0, 0, 0.008) 7.5deg,
+      transparent 15deg
+    );
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .compass-north {
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #ef4444;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #dc2626;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
 }
 
 .compass-east {
   position: absolute;
-  right: 10px;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
 }
 
 .compass-south {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
 }
 
 .compass-west {
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
 }
 
 .compass-degrees {
@@ -302,11 +391,12 @@
 .degree-line {
   position: absolute;
   width: 2px;
-  height: 12px;
-  background: #94a3b8;
+  height: 15px;
+  background: linear-gradient(to bottom, #9ca3af 0%, #d1d5db 100%);
   left: 50%;
-  top: 8px;
+  top: 12px;
   transform: translateX(-50%);
+  border-radius: 1px;
 }
 
 /* Compass Needle - Fixed in center, rotates to point to Qibla */
@@ -330,10 +420,35 @@
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 120px solid #10b981;
-  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 140px solid #3b82f6;
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.6));
+}
+
+/* White center body of north needle */
+.needle-north::before {
+  content: '';
+  position: absolute;
+  bottom: -135px;
+  left: -8px;
+  width: 16px;
+  height: 135px;
+  background: linear-gradient(to bottom, 
+    #ffffff 0%, 
+    #f0f4ff 40%,
+    #e0e7ff 100%
+  );
+  border-radius: 8px 8px 0 0;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(59, 130, 246, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+  clip-path: polygon(
+    50% 0%,
+    100% 100%,
+    0% 100%
+  );
 }
 
 .needle-south {
@@ -343,30 +458,21 @@
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 120px solid #94a3b8;
-  filter: drop-shadow(0 2px 8px rgba(148, 163, 184, 0.3));
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 140px solid #ef4444;
+  filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.6));
 }
 
-.kaaba-icon {
+/* Kaaba icon INSIDE the white needle body */
+.needle-kaaba {
   position: absolute;
-  bottom: 115px;
+  bottom: 45px;
   left: 0;
   transform: translateX(-50%);
-  font-size: 2rem;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-  animation: glow 2s ease-in-out infinite;
-  z-index: 20;
-}
-
-@keyframes glow {
-  0%, 100% {
-    filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
-  }
-  50% {
-    filter: drop-shadow(0 2px 12px rgba(16, 185, 129, 0.8));
-  }
+  font-size: 1.8rem;
+  z-index: 25;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .compass-center {
@@ -378,14 +484,16 @@
 }
 
 .center-pin {
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, #ffffff 0%, #e2e8f0 100%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #ffffff 0%, #f3f4f6 50%, #d1d5db 100%);
   border-radius: 50%;
-  border: 3px solid #64748b;
+  border: 4px solid #6b7280;
   box-shadow: 
-    0 0 0 3px rgba(100, 116, 139, 0.2),
-    0 2px 8px rgba(0, 0, 0, 0.2);
+    0 0 0 2px #ffffff,
+    0 0 0 4px rgba(107, 114, 128, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
 .qibla-instructions {
