@@ -369,36 +369,48 @@
   font-weight: 600;
 }
 
-.arrow-shape {
-  font-size: 1.2rem;
-  opacity: 0.7;
+.arrow-shape { opacity: 0.9; }
+
+/* CSS triangles for arrow heads */
+.dir-north .arrow-shape {
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #9ca3af;
 }
 
-.dir-north {
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+.dir-south .arrow-shape {
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid #9ca3af;
 }
 
-.dir-east {
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  flex-direction: row;
+.dir-east { flex-direction: row; }
+.dir-east .arrow-shape {
+  width: 0; height: 0; margin-right: 6px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #9ca3af;
 }
 
-.dir-south {
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+.dir-west { flex-direction: row-reverse; }
+.dir-west .arrow-shape {
+  width: 0; height: 0; margin-left: 6px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 12px solid #9ca3af;
 }
 
-.dir-west {
-  left: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  flex-direction: row-reverse;
-}
+.dir-arrow span { line-height: 1; }
+
+.dir-north { top: 22px; left: 50%; transform: translateX(-50%); }
+
+.dir-east { right: 22px; top: 50%; transform: translateY(-50%); }
+
+.dir-south { bottom: 22px; left: 50%; transform: translateX(-50%); }
+
+.dir-west { left: 22px; top: 50%; transform: translateY(-50%); }
 
 .compass-degrees {
   position: absolute;
@@ -430,7 +442,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 0;
+  height: 0;
   transform: translate(-50%, -50%);
+  transform-origin: center center;
   transition: transform 0.5s ease-out;
   pointer-events: none;
   z-index: 12;
@@ -438,31 +453,29 @@
 
 .arrow-tip {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -150px; /* centered to ~radius */
+  left: -18px; /* center a 36px-wide triangle */
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
   border-bottom: 50px solid #3b82f6;
   filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.6));
 }
 
 .arrow-body {
   position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32px;
-  height: 160px;
+  top: -100px; /* under the tip */
+  left: -14px; /* center a 28px-wide rectangle */
+  width: 28px;
+  height: 140px;
   background: linear-gradient(to bottom,
     #ffffff 0%,
     #f8fafc 20%,
     #e0e7ff 80%,
     #bfdbfe 100%
   );
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: 
     inset 3px 0 6px rgba(255, 255, 255, 0.9),
     inset -3px 0 6px rgba(59, 130, 246, 0.2),
@@ -489,14 +502,13 @@
 
 .arrow-tail {
   position: absolute;
-  top: 210px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 38px; /* below center */
+  left: -14px; /* center a 28px base */
   width: 0;
   height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-top: 40px solid #ef4444;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 35px solid #ef4444;
   filter: drop-shadow(0 4px 10px rgba(239, 68, 68, 0.5));
 }
 
