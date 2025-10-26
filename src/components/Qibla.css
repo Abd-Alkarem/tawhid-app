@@ -252,6 +252,36 @@
   color: #ef4444;
 }
 
+.compass-east {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.compass-south {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.compass-west {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
 .compass-marks {
   position: absolute;
   width: 100%;
@@ -293,14 +323,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+}
+
+.kaaba-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  animation: glow 2s ease-in-out infinite;
+  margin-bottom: -8px;
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 4px 20px rgba(16, 185, 129, 0.8));
+  }
 }
 
 .arrow-pointer {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #10b981;
   text-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
   animation: pulse 2s ease-in-out infinite;
+  margin-top: -12px;
 }
 
 @keyframes pulse {
@@ -317,8 +364,25 @@
   color: white;
   padding: 4px 12px;
   border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.compass-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.center-dot {
+  width: 12px;
+  height: 12px;
+  background: #64748b;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.2);
 }
 
 .qibla-instructions {

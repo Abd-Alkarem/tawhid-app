@@ -98,14 +98,20 @@ function Qibla({ onClose }) {
 
     // Get device orientation (compass)
     const handleOrientation = (event) => {
-      if (event.alpha !== null) {
-        // For iOS, use webkitCompassHeading if available
-        const heading = event.webkitCompassHeading || (360 - event.alpha);
-        setCurrentHeading(heading);
-      } else if (event.webkitCompassHeading !== undefined) {
-        // iOS specific
-        setCurrentHeading(event.webkitCompassHeading);
+      let heading = 0;
+      
+      if (event.webkitCompassHeading !== undefined) {
+        // iOS devices - webkitCompassHeading gives true north heading
+        heading = event.webkitCompassHeading;
+      } else if (event.absolute && event.alpha !== null) {
+        // Android with absolute orientation
+        heading = 360 - event.alpha;
+      } else if (event.alpha !== null) {
+        // Fallback for other devices
+        heading = 360 - event.alpha;
       }
+      
+      setCurrentHeading(heading);
     };
 
     if (window.DeviceOrientationEvent) {
@@ -210,6 +216,9 @@ function Qibla({ onClose }) {
                   style={{ transform: `rotate(${-currentHeading}deg)` }}
                 >
                   <div className="compass-north">N</div>
+                  <div className="compass-east">E</div>
+                  <div className="compass-south">S</div>
+                  <div className="compass-west">W</div>
                   <div className="compass-marks">
                     <div className="compass-mark"></div>
                     <div className="compass-mark"></div>
@@ -222,13 +231,26 @@ function Qibla({ onClose }) {
                   className="qibla-arrow"
                   style={{ transform: `rotate(${qiblaDirection - currentHeading}deg)` }}
                 >
+                  <div className="kaaba-icon">🕋</div>
                   <div className="arrow-pointer">▲</div>
-                  <div className="arrow-label">Qibla</div>
+                  <div className="arrow-label">القبلة</div>
+                </div>
+                
+                <div className="compass-center">
+                  <div className="center-dot"></div>
                 </div>
               </div>
 
               <div className="qibla-instructions">
-                <p>Point your device towards the arrow to face Qibla</p>
+                <p style={{ fontSize: '1.1rem', fontWeight: '600', color: '#10b981' }}>
+                  🕋 وجّه جهازك نحو السهم للقبلة
+                </p>
+                <p style={{ fontSize: '0.95rem' }}>
+                  Point your device towards the Kaaba icon (🕋) to face Qibla
+                </p>
+                <p style={{ fontSize: '0.85rem', marginTop: '12px', color: '#94a3b8' }}>
+                  Qibla Direction: {qiblaDirection.toFixed(1)}° from North
+                </p>
                 <p className="qibla-note">
                   <MapPin size={14} />
                   Location: {userLocation.lat.toFixed(4)}°, {userLocation.lng.toFixed(4)}°
