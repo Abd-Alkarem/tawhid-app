@@ -29,9 +29,14 @@ function Hadith({ onClose }) {
     setCurrentPage(page);
     
     try {
-      // Fetch more hadiths per page to show book-like content
+      // Use production backend URL or localhost for development
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://tawhid-app-backend.onrender.com'
+        : window.location.hostname === 'localhost'
+          ? 'http://localhost:3001'
+          : `http://${window.location.hostname}:3001`;
       const response = await fetch(
-        `https://hadithapi.com/api/hadiths?apiKey=${API_KEY}&book=${book.slug}&paginate=50&page=${page}`
+        `${apiUrl}/api/hadiths?apiKey=${API_KEY}&book=${book.slug}&paginate=50&page=${page}`
       );
       const data = await response.json();
 

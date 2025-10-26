@@ -19,11 +19,12 @@ function HadithSearch({ onClose }) {
     setSearched(true);
     
     try {
-      // Use window.location.hostname to work on both localhost and network IP
-      const apiHost = window.location.hostname === 'localhost' 
-        ? 'localhost' 
-        : window.location.hostname;
-      const apiUrl = `http://${apiHost}:3001`;
+      // Use production backend URL or localhost for development
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://tawhid-app-backend.onrender.com'
+        : window.location.hostname === 'localhost'
+          ? 'http://localhost:3001'
+          : `http://${window.location.hostname}:3001`;
       
       // Fetch multiple pages to get more than 15 hadiths
       const allHadiths = [];

@@ -563,7 +563,12 @@ function Books({ onClose }) {
       }
       
       // For other books, try the proxy server
-      const response = await fetch(`http://localhost:3001/api/book/${book.id}`);
+      const apiUrl = process.env.NODE_ENV === 'production'
+        ? 'https://tawhid-app-backend.onrender.com'
+        : window.location.hostname === 'localhost'
+          ? 'http://localhost:3001'
+          : `http://${window.location.hostname}:3001`;
+      const response = await fetch(`${apiUrl}/api/book/${book.id}`);
       
       if (response.ok) {
         const data = await response.json();
