@@ -217,20 +217,38 @@ function Qibla({ onClose }) {
               </div>
 
               <div className={`compass-container ${isFacingQibla ? 'facing-qibla' : ''}`}>
-                {/* Fixed white line marking Qibla direction */}
-                <div className="qibla-marker">
-                  <div className="qibla-line"></div>
+                {/* 4 Green lines outside circle marking cardinal directions */}
+                <div className="cardinal-markers">
+                  <div className="cardinal-line cardinal-north"></div>
+                  <div className="cardinal-line cardinal-east"></div>
+                  <div className="cardinal-line cardinal-south"></div>
+                  <div className="cardinal-line cardinal-west"></div>
                 </div>
                 
                 {/* Rotating compass background */}
                 <div 
                   className="compass-circle"
-                  style={{ transform: `rotate(${-currentHeading}deg)` }}
+                  style={{ transform: `rotate(${qiblaDirection - currentHeading}deg)` }}
                 >
-                  <div className="compass-north">N</div>
-                  <div className="compass-east">E</div>
-                  <div className="compass-south">S</div>
-                  <div className="compass-west">W</div>
+                  {/* Small gray arrows for directions */}
+                  <div className="direction-arrows">
+                    <div className="dir-arrow dir-north">
+                      <div className="arrow-shape">▲</div>
+                      <span>N</span>
+                    </div>
+                    <div className="dir-arrow dir-east">
+                      <div className="arrow-shape">▶</div>
+                      <span>E</span>
+                    </div>
+                    <div className="dir-arrow dir-south">
+                      <div className="arrow-shape">▼</div>
+                      <span>S</span>
+                    </div>
+                    <div className="dir-arrow dir-west">
+                      <div className="arrow-shape">◀</div>
+                      <span>W</span>
+                    </div>
+                  </div>
                   
                   {/* Compass degree marks */}
                   <div className="compass-degrees">
@@ -246,15 +264,16 @@ function Qibla({ onClose }) {
                   </div>
                 </div>
                 
-                {/* Fixed center needle pointing to Qibla */}
+                {/* BIG rotating arrow with Kaaba inside */}
                 <div 
-                  className="compass-needle"
+                  className="main-arrow"
                   style={{ transform: `rotate(${qiblaDirection - currentHeading}deg)` }}
                 >
-                  <div className="needle-north">
-                    <div className="needle-kaaba">🕋</div>
+                  <div className="arrow-body">
+                    <div className="arrow-kaaba">🕋</div>
                   </div>
-                  <div className="needle-south"></div>
+                  <div className="arrow-tip"></div>
+                  <div className="arrow-tail"></div>
                 </div>
                 
                 {/* Center pin */}
