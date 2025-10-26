@@ -211,6 +211,7 @@ function Qibla({ onClose }) {
               </div>
 
               <div className="compass-container">
+                {/* Rotating compass background */}
                 <div 
                   className="compass-circle"
                   style={{ transform: `rotate(${-currentHeading}deg)` }}
@@ -219,25 +220,35 @@ function Qibla({ onClose }) {
                   <div className="compass-east">E</div>
                   <div className="compass-south">S</div>
                   <div className="compass-west">W</div>
-                  <div className="compass-marks">
-                    <div className="compass-mark"></div>
-                    <div className="compass-mark"></div>
-                    <div className="compass-mark"></div>
-                    <div className="compass-mark"></div>
+                  
+                  {/* Compass degree marks */}
+                  <div className="compass-degrees">
+                    {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+                      <div 
+                        key={deg}
+                        className="degree-mark"
+                        style={{ transform: `rotate(${deg}deg)` }}
+                      >
+                        <div className="degree-line"></div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 
+                {/* Fixed center needle pointing to Qibla */}
                 <div 
-                  className="qibla-arrow"
+                  className="compass-needle"
                   style={{ transform: `rotate(${qiblaDirection - currentHeading}deg)` }}
                 >
-                  <div className="kaaba-icon">🕋</div>
-                  <div className="arrow-pointer">▲</div>
-                  <div className="arrow-label">القبلة</div>
+                  <div className="needle-north">
+                    <div className="kaaba-icon">🕋</div>
+                  </div>
+                  <div className="needle-south"></div>
                 </div>
                 
+                {/* Center pin */}
                 <div className="compass-center">
-                  <div className="center-dot"></div>
+                  <div className="center-pin"></div>
                 </div>
               </div>
 

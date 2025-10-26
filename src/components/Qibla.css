@@ -224,8 +224,8 @@
 
 .compass-container {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 320px;
+  height: 320px;
   margin: 0 auto 24px;
 }
 
@@ -233,13 +233,16 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 4px solid #e2e8f0;
+  border: 3px solid #cbd5e1;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-  transition: transform 0.3s ease-out;
+  background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%);
+  transition: transform 0.5s ease-out;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 
+    0 0 0 8px rgba(203, 213, 225, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .compass-north {
@@ -282,91 +285,88 @@
   color: #64748b;
 }
 
-.compass-marks {
+.compass-degrees {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.compass-mark {
+.degree-mark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.degree-line {
   position: absolute;
   width: 2px;
-  height: 20px;
+  height: 12px;
   background: #94a3b8;
   left: 50%;
-  top: 0;
-  transform-origin: center 140px;
+  top: 8px;
+  transform: translateX(-50%);
 }
 
-.compass-mark:nth-child(1) {
-  transform: translateX(-50%) rotate(0deg);
-}
-
-.compass-mark:nth-child(2) {
-  transform: translateX(-50%) rotate(90deg);
-}
-
-.compass-mark:nth-child(3) {
-  transform: translateX(-50%) rotate(180deg);
-}
-
-.compass-mark:nth-child(4) {
-  transform: translateX(-50%) rotate(270deg);
-}
-
-.qibla-arrow {
+/* Compass Needle - Fixed in center, rotates to point to Qibla */
+.compass-needle {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 0;
+  height: 0;
   transform: translate(-50%, -50%);
-  transition: transform 0.3s ease-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  transform-origin: 0 0;
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.needle-north {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 120px solid #10b981;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
+}
+
+.needle-south {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 120px solid #94a3b8;
+  filter: drop-shadow(0 2px 8px rgba(148, 163, 184, 0.3));
 }
 
 .kaaba-icon {
-  font-size: 2.5rem;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  position: absolute;
+  bottom: 115px;
+  left: 0;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
   animation: glow 2s ease-in-out infinite;
-  margin-bottom: -8px;
+  z-index: 20;
 }
 
 @keyframes glow {
   0%, 100% {
-    filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.4));
+    filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
   }
   50% {
-    filter: drop-shadow(0 4px 20px rgba(16, 185, 129, 0.8));
+    filter: drop-shadow(0 2px 12px rgba(16, 185, 129, 0.8));
   }
-}
-
-.arrow-pointer {
-  font-size: 2.5rem;
-  color: #10b981;
-  text-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
-  animation: pulse 2s ease-in-out infinite;
-  margin-top: -12px;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-.arrow-label {
-  background: #10b981;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
 .compass-center {
@@ -374,15 +374,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 15;
 }
 
-.center-dot {
-  width: 12px;
-  height: 12px;
-  background: #64748b;
+.center-pin {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ffffff 0%, #e2e8f0 100%);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.2);
+  border: 3px solid #64748b;
+  box-shadow: 
+    0 0 0 3px rgba(100, 116, 139, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .qibla-instructions {
