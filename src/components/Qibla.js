@@ -9,6 +9,7 @@ function Qibla({ onClose }) {
   const [error, setError] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [needsPermission, setNeedsPermission] = useState(true);
+  const [orientationPermission, setOrientationPermission] = useState(false);
 
   // Kaaba coordinates
   const KAABA_LAT = 21.4225;
@@ -35,10 +36,30 @@ function Qibla({ onClose }) {
     return bearing;
   };
 
-  const requestLocation = () => {
+  const requestOrientationPermission = async () => {
+    // Request orientation permission for iOS 13+
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      try {
+        const permission = await DeviceOrientationEvent.requestPermission();
+        if (permission === 'granted') {
+          setOrientationPermission(true);
+        }
+      } catch (error) {
+        console.error('Orientation permission error:', error);
+      }
+    } else {
+      // For Android and older browsers
+      setOrientationPermission(true);
+    }
+  };
+
+  const requestLocation = async () => {
     setLoading(true);
     setError(null);
     setNeedsPermission(false);
+    
+    // Request orientation permission first
+    await requestOrientationPermission();
     
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -73,23 +94,30 @@ function Qibla({ onClose }) {
   };
 
   useEffect(() => {
+    if (!orientationPermission) return;
 
     // Get device orientation (compass)
     const handleOrientation = (event) => {
       if (event.alpha !== null) {
-        // Alpha is the compass direction
-        setCurrentHeading(360 - event.alpha);
+        // For iOS, use webkitCompassHeading if available
+        const heading = event.webkitCompassHeading || (360 - event.alpha);
+        setCurrentHeading(heading);
+      } else if (event.webkitCompassHeading !== undefined) {
+        // iOS specific
+        setCurrentHeading(event.webkitCompassHeading);
       }
     };
 
     if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', handleOrientation);
+      window.addEventListener('deviceorientation', handleOrientation, true);
+      window.addEventListener('deviceorientationabsolute', handleOrientation, true);
     }
 
     return () => {
-      window.removeEventListener('deviceorientation', handleOrientation);
+      window.removeEventListener('deviceorientation', handleOrientation, true);
+      window.removeEventListener('deviceorientationabsolute', handleOrientation, true);
     };
-  }, []);
+  }, [orientationPermission]);
 
   const getDistance = () => {
     if (!userLocation) return null;
