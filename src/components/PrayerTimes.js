@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Calendar, Share2, Volume2, Sun } from 'lucide-react';
 import './PrayerTimes.css';
 
-const PrayerTimes = ({ onClose }) => {
+const PrayerTimes = ({ onClose, mode = 'modal' }) => {
   const [prayerTimes, setPrayerTimes] = useState(null);
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -126,9 +126,24 @@ const PrayerTimes = ({ onClose }) => {
     }
   };
 
-  return (
-    <div className="prayer-times-modal-overlay" onClick={onClose}>
-      <div className="prayer-times-modal" onClick={(e) => e.stopPropagation()}>
+  const ContainerStart = () => (
+    mode === 'modal' ? (
+      <div className="prayer-times-modal-overlay" onClick={onClose}>
+        <div className="prayer-times-modal" onClick={(e) => e.stopPropagation()}>
+          <HeaderBar />
+          <CloseTop />
+          <Content />
+        </div>
+      </div>
+    ) : (
+      <div className="prayer-times-page">
+        <HeaderBar showBack={!!onClose} />
+        <Content />
+      </div>
+    )
+  );
+
+  const HeaderBar = ({ showBack = false }) => (
         <div className="prayer-times-header">
           <button className="header-icon-btn">
             <Calendar size={24} />
@@ -138,11 +153,17 @@ const PrayerTimes = ({ onClose }) => {
             <Share2 size={24} />
           </button>
         </div>
+  );
 
-        <button className="close-button-top" onClick={onClose}>
-          <X size={24} />
-        </button>
+  const CloseTop = () => (
+    mode === 'modal' ? (
+      <button className="close-button-top" onClick={onClose}>
+        <X size={24} />
+      </button>
+    ) : null
+  );
 
+  const Content = () => (
         <div className="prayer-times-content">
           {loading ? (
             <div className="prayer-loading">
@@ -228,9 +249,9 @@ const PrayerTimes = ({ onClose }) => {
             </div>
           )}
         </div>
-      </div>
-    </div>
   );
+
+  return <ContainerStart />;
 };
 
 export default PrayerTimes;

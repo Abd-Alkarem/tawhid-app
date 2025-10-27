@@ -1,0 +1,26 @@
+.calendar-page{background:#f9fafb;min-height:100vh;padding-bottom:80px}
+.calendar-header-main{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);padding:20px;display:flex;align-items:center;gap:12px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.calendar-header-main h2{margin:0;font-size:1.5rem;font-weight:700;font-family:'Amiri','Traditional Arabic',serif}
+.calendar-loading{text-align:center;padding:40px;color:#6b7280;font-family:'Amiri','Traditional Arabic',serif}
+.current-hijri-date{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);color:#fff;text-align:center;padding:40px 20px;margin:0}
+.hijri-large{font-size:4rem;font-weight:700;margin-bottom:8px}
+.hijri-month{font-size:1.8rem;font-weight:600;margin-bottom:4px;font-family:'Amiri','Traditional Arabic',serif}
+.hijri-year{font-size:1.2rem;opacity:.9}
+.events-section{padding:20px}
+.events-section h3{margin:0 0 16px;font-size:1.3rem;color:#1f2937;font-family:'Amiri','Traditional Arabic',serif}
+.timeline{position:relative;padding:12px 12px 12px 0}
+.timeline:before{content:"";position:absolute;right:28px;top:0;bottom:0;width:3px;background:#fde68a}
+.timeline-item{display:flex;align-items:center;gap:12px;padding:16px 12px;background:#fff;border-radius:12px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.timeline-item.today .date-g{background:#10b981}
+.timeline-item.ramadan .date-g{background:#8b5cf6}
+.timeline-item.eid .date-g{background:#f59e0b}
+.timeline-item.special .date-g{background:#ec4899}
+.timeline-item.newyear .date-g{background:#3b82f6}
+.date-g{background:#22d3ee;color:#fff;border-radius:999px;padding:8px 10px;font-weight:700;min-width:70px;text-align:center;font-size:.85rem}
+.dot{width:18px;height:18px;border:3px solid #22d3ee;border-radius:50%;background:#fff}
+.content{flex:1;text-align:right}
+.title{font-weight:800;color:#1f2937;font-family:'Amiri','Traditional Arabic',serif;font-size:1.1rem}
+.date-h{color:#6b7280;margin-top:4px;font-size:.9rem}
+.bell-btn{background:transparent;border:none;color:#ef4444;cursor:pointer;padding:8px;border-radius:8px;transition:all .2s}
+.bell-btn:hover{background:#fee2e2}
+@media(max-width:480px){.timeline:before{right:22px}.timeline-item{gap:10px;padding:14px 10px}.date-g{min-width:64px}}

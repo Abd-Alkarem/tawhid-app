@@ -1,0 +1,185 @@
+.juz-view {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.juz-header {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.juz-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.juz-list {
+  padding: 0;
+}
+
+.juz-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.juz-item:hover {
+  background: #f9fafb;
+}
+
+.juz-item:active {
+  background: #f3f4f6;
+}
+
+.bookmark-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.bookmark-btn:hover {
+  background: #f3f4f6;
+}
+
+.bookmark-btn.saved {
+  color: #10b981;
+}
+
+.play-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.play-btn:hover {
+  background: #f0fdf4;
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.juz-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
+}
+
+.juz-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.juz-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.juz-english {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.juz-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.juz-surahs {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.juz-pages {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.juz-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .juz-item {
+    padding: 14px 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .juz-header {
+    padding: 16px;
+  }
+  
+  .juz-header h3 {
+    font-size: 1rem;
+  }
+  
+  .juz-item {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  
+  .juz-name {
+    font-size: 1rem;
+  }
+  
+  .juz-english {
+    font-size: 0.8rem;
+  }
+  
+  .juz-surahs {
+    font-size: 0.85rem;
+  }
+  
+  .juz-pages {
+    font-size: 0.75rem;
+  }
+  
+  .juz-number {
+    font-size: 1.3rem;
+    min-width: 35px;
+  }
+  
+  .bookmark-btn,
+  .play-btn {
+    padding: 6px;
+  }
+}

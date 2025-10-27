@@ -112,7 +112,17 @@ const Tasbih = ({ onClose }) => {
               >
                 <Minus size={18} />
               </button>
-              <span className="target-value">{target}</span>
+              <input
+                type="number"
+                className="target-input"
+                value={target}
+                onChange={(e) => {
+                  const value = parseInt(e.target.value) || 1;
+                  setTarget(Math.max(1, Math.min(9999, value)));
+                }}
+                min="1"
+                max="9999"
+              />
               <button 
                 className="target-btn"
                 onClick={() => setTarget(target + 1)}

@@ -1,0 +1,18 @@
+.adhkar-page{background:#f9fafb;min-height:100vh;padding-bottom:80px}
+.adhkar-header{background:linear-gradient(135deg,#10b981 0%,#059669 100%);padding:20px;text-align:center;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.adhkar-header h2{margin:0;font-size:1.5rem;font-weight:700;font-family:'Amiri','Traditional Arabic',serif}
+.adhkar-content{padding:12px}
+.adhkar-category{margin-bottom:8px;border-radius:12px;overflow:hidden;background:#fff}
+.category-header{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;cursor:pointer;transition:all .2s}
+.category-header:hover{background:#f9fafb}
+.category-info{display:flex;align-items:center;gap:12px}
+.category-icon{font-size:1.5rem}
+.category-title{font-size:1.1rem;font-weight:600;color:#1f2937;font-family:'Amiri','Traditional Arabic',serif}
+.chevron{color:#9ca3af;transition:transform .3s}
+.chevron.expanded{transform:rotate(180deg)}
+.adhkar-list{padding:12px;display:flex;flex-direction:column;gap:12px}
+.adhkar-item{padding:16px;background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb}
+.adhkar-arabic{font-size:1.4rem;line-height:2;color:#1f2937;text-align:right;font-family:'Amiri','Traditional Arabic',serif;margin-bottom:8px}
+.adhkar-count{text-align:right;color:#10b981;font-weight:700;font-size:.9rem}
+.loading{text-align:center;padding:40px;color:#6b7280;font-family:'Amiri','Traditional Arabic',serif}
+@media(max-width:480px){.adhkar-header{padding:16px}.adhkar-header h2{font-size:1.3rem}.adhkar-arabic{font-size:1.2rem}}

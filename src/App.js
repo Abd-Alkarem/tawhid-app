@@ -13,6 +13,12 @@ import PrayerTimes from './components/PrayerTimes';
 import Duas from './components/Duas';
 import NamesOfAllah from './components/NamesOfAllah';
 import Tasbih from './components/Tasbih';
+import Settings from './components/Settings';
+import IslamicCalendar from './components/IslamicCalendar';
+import BottomNav from './components/BottomNav';
+import QuranTabs from './components/QuranTabs';
+import AdhkarPage from './components/AdhkarPage';
+import DuaPage from './components/DuaPage';
 import './App.css';
 
 function App() {
@@ -22,6 +28,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [surahData, setSurahData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState('quran'); // Bottom nav active tab
   const [showQibla, setShowQibla] = useState(false);
   const [showBooks, setShowBooks] = useState(false);
   const [showHadith, setShowHadith] = useState(false);
@@ -155,56 +162,81 @@ function App() {
     }
   };
 
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
-    <div className="App">
-      <Header 
-        onPrayerTimesClick={() => setShowPrayerTimes(true)}
-        onDuasClick={() => setShowDuas(true)}
-        onNamesClick={() => setShowNamesOfAllah(true)}
-        onTasbihClick={() => setShowTasbih(true)}
-      />
-      
-      <div className="container">
-        <div className="controls-section">
-          <ReciterSelector
-            reciters={reciters}
-            selectedReciter={selectedReciter}
-            onReciterChange={handleReciterChange}
+    <div className="App app-layout">
+      {/* Conditional rendering based on active tab */}
+      {activeTab === 'quran' ? (
+        <>
+          <QuranTabs 
+            surahs={surahs}
+            onSurahSelect={setSelectedSurah}
+            onJuzSelect={(juzNumber) => {
+              console.log('Selected Juz:', juzNumber);
+              // Handle Juz selection
+            }}
           />
           
-          <SurahSelector
-            surahs={surahs}
-            selectedSurah={selectedSurah}
-            onSurahChange={setSelectedSurah}
+          <audio
+            ref={audioRef}
+            onEnded={handleAudioEnded}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
           />
-        </div>
+        </>
+      ) : activeTab === 'home' ? (
+        <>
+          <Header 
+            onPrayerTimesClick={() => setShowPrayerTimes(true)}
+            onDuasClick={() => setShowDuas(true)}
+            onNamesClick={() => setShowNamesOfAllah(true)}
+            onTasbihClick={() => setShowTasbih(true)}
+          />
+          
+          <div className="container">
+            <div className="controls-section">
+              <ReciterSelector
+                reciters={reciters}
+                selectedReciter={selectedReciter}
+                onReciterChange={handleReciterChange}
+              />
+              
+              <SurahSelector
+                surahs={surahs}
+                selectedSurah={selectedSurah}
+                onSurahChange={setSelectedSurah}
+              />
+            </div>
 
-        <AudioPlayer
-          isPlaying={isPlaying}
-          onPlayPause={handlePlayPause}
-          onNext={handleNext}
-          onPrevious={handlePrevious}
-          currentAyah={currentAyah}
-          totalAyahs={selectedSurah.ayahs}
-          surahName={selectedSurah.nameArabic}
-        />
+            <AudioPlayer
+              isPlaying={isPlaying}
+              onPlayPause={handlePlayPause}
+              onNext={handleNext}
+              onPrevious={handlePrevious}
+              currentAyah={currentAyah}
+              totalAyahs={selectedSurah.ayahs}
+              surahName={selectedSurah.nameArabic}
+            />
 
-        <QuranText
-          surahData={surahData}
-          currentAyah={currentAyah}
-          onAyahClick={playAyah}
-          loading={loading}
-        />
+            <QuranText
+              surahData={surahData}
+              currentAyah={currentAyah}
+              onAyahClick={playAyah}
+              loading={loading}
+            />
 
-        <audio
-          ref={audioRef}
-          onEnded={handleAudioEnded}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-        />
+            <audio
+              ref={audioRef}
+              onEnded={handleAudioEnded}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            />
 
-        {/* Floating Action Buttons */}
-        <div className="fab-container">
+            {/* Floating Action Buttons */}
+            <div className="fab-container">
           {/* Hadith Search Button */}
           <button 
             className="hadith-search-fab"
@@ -280,18 +312,44 @@ function App() {
               <polygon points="12 2 15 8 12 14 9 8"/>
             </svg>
           </button>
+            </div>
+          </div>
+        </>
+      ) : activeTab === 'prayer' ? (
+        <PrayerTimes mode="page" />
+      ) : activeTab === 'library' ? (
+        <div className="library-tabs">
+          <div className="library-tab-switcher">
+            <button className="lib-tab active">أذكار</button>
+            <button className="lib-tab">دعاء</button>
+          </div>
+          <AdhkarPage />
         </div>
+      ) : activeTab === 'duas' ? (
+        <DuaPage />
+      ) : activeTab === 'calendar' ? (
+        <IslamicCalendar mode="page" />
+      ) : activeTab === 'more' ? (
+        <Settings 
+          onBack={() => setActiveTab('home')} 
+          onOpenCalendar={() => setActiveTab('calendar')}
+          onOpenPrayer={() => setActiveTab('prayer')}
+          onOpenAdhkar={() => setActiveTab('library')}
+        />
+      ) : null}
 
-        {/* Modals */}
-        {showQibla && <Qibla onClose={() => setShowQibla(false)} />}
-        {showBooks && <Books onClose={() => setShowBooks(false)} />}
-        {showHadith && <Hadith onClose={() => setShowHadith(false)} />}
-        {showHadithSearch && <HadithSearch onClose={() => setShowHadithSearch(false)} />}
-        {showPrayerTimes && <PrayerTimes onClose={() => setShowPrayerTimes(false)} />}
-        {showDuas && <Duas onClose={() => setShowDuas(false)} />}
-        {showNamesOfAllah && <NamesOfAllah onClose={() => setShowNamesOfAllah(false)} />}
-        {showTasbih && <Tasbih onClose={() => setShowTasbih(false)} />}
-      </div>
+      {/* Bottom Navigation */}
+      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} />
+
+      {/* Modals */}
+      {showQibla && <Qibla onClose={() => setShowQibla(false)} />}
+      {showBooks && <Books onClose={() => setShowBooks(false)} />}
+      {showHadith && <Hadith onClose={() => setShowHadith(false)} />}
+      {showHadithSearch && <HadithSearch onClose={() => setShowHadithSearch(false)} />}
+      {showPrayerTimes && <PrayerTimes onClose={() => setShowPrayerTimes(false)} />}
+      {showDuas && <Duas onClose={() => setShowDuas(false)} />}
+      {showNamesOfAllah && <NamesOfAllah onClose={() => setShowNamesOfAllah(false)} />}
+      {showTasbih && <Tasbih onClose={() => setShowTasbih(false)} />}
     </div>
   );
 }

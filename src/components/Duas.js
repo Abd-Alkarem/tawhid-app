@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { X, ChevronDown, Bookmark, Share2, Copy } from 'lucide-react';
+import { duasData } from '../data/duasData';
 import './Duas.css';
 
-const Duas = ({ onClose }) => {
+const Duas = ({ onClose, mode = 'modal' }) => {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [savedDuas, setSavedDuas] = useState(new Set());
 
-  const duasData = [
+  const oldDuasData = [
     {
       id: 'daily',
       title: { ar: 'اليوم', en: 'Daily' },
@@ -185,7 +186,7 @@ const Duas = ({ onClose }) => {
     }
   };
 
-  return (
+  const Container = mode === 'modal' ? (
     <div className="duas-modal-overlay" onClick={onClose}>
       <div className="duas-modal" onClick={(e) => e.stopPropagation()}>
         <div className="duas-header">
@@ -195,7 +196,25 @@ const Duas = ({ onClose }) => {
           <h2>إتحاد القراء/التوجيه</h2>
           <div className="header-spacer"></div>
         </div>
+        <div className="duas-content">
+          {renderCategories()}
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="duas-page">
+      <div className="duas-header">
+        <h2>إتحاد القراء/التوجيه</h2>
+      </div>
+      <div className="duas-content">
+        {renderCategories()}
+      </div>
+    </div>
+  );
 
+  function renderCategories() {
+    return (
+      <>
         <div className="duas-content">
           {duasData.map((category) => (
             <div key={category.id} className="dua-category">
@@ -249,9 +268,11 @@ const Duas = ({ onClose }) => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
-  );
+      </>
+    );
+  }
+
+  return Container;
 };
 
 export default Duas;

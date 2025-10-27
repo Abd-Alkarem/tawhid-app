@@ -1,7 +1,12 @@
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
+}
+
+.app-layout {
+  background: #f9fafb;
+  min-height: 100vh;
+  padding-bottom: 70px; /* Space for bottom nav */
 }
 
 .container {
@@ -139,14 +144,69 @@
   transform: scale(0.95);
 }
 
-@media (max-width: 768px) {
-  .App {
-    padding: 10px;
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
   }
-
+  
   .controls-section {
-    grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 15px;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .controls-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .audio-player {
+    padding: 1.5rem 1rem;
+  }
+  
+  .fab-container {
+    bottom: 80px;
+    right: 12px;
+  }
+  
+  .qibla-fab,
+  .books-fab,
+  .hadith-fab,
+  .hadith-search-fab {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .controls-section {
+    gap: 0.75rem;
+  }
+  
+  .audio-player {
+    padding: 1rem 0.75rem;
+  }
+  
+  .fab-container {
+    bottom: 70px;
+    right: 8px;
+    gap: 8px;
+  }
+  
+  .qibla-fab,
+  .books-fab,
+  .hadith-fab,
+  .hadith-search-fab {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
   }
 }
