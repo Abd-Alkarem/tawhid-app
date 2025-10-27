@@ -9,6 +9,10 @@ import Qibla from './components/Qibla';
 import Books from './components/Books';
 import Hadith from './components/Hadith';
 import HadithSearch from './components/HadithSearch';
+import PrayerTimes from './components/PrayerTimes';
+import Duas from './components/Duas';
+import NamesOfAllah from './components/NamesOfAllah';
+import Tasbih from './components/Tasbih';
 import './App.css';
 
 function App() {
@@ -22,6 +26,10 @@ function App() {
   const [showBooks, setShowBooks] = useState(false);
   const [showHadith, setShowHadith] = useState(false);
   const [showHadithSearch, setShowHadithSearch] = useState(false);
+  const [showPrayerTimes, setShowPrayerTimes] = useState(false);
+  const [showDuas, setShowDuas] = useState(false);
+  const [showNamesOfAllah, setShowNamesOfAllah] = useState(false);
+  const [showTasbih, setShowTasbih] = useState(false);
   const audioRef = useRef(null);
 
   // Fetch Quran text data
@@ -149,7 +157,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header 
+        onPrayerTimesClick={() => setShowPrayerTimes(true)}
+        onDuasClick={() => setShowDuas(true)}
+        onNamesClick={() => setShowNamesOfAllah(true)}
+        onTasbihClick={() => setShowTasbih(true)}
+      />
       
       <div className="container">
         <div className="controls-section">
@@ -274,6 +287,10 @@ function App() {
         {showBooks && <Books onClose={() => setShowBooks(false)} />}
         {showHadith && <Hadith onClose={() => setShowHadith(false)} />}
         {showHadithSearch && <HadithSearch onClose={() => setShowHadithSearch(false)} />}
+        {showPrayerTimes && <PrayerTimes onClose={() => setShowPrayerTimes(false)} />}
+        {showDuas && <Duas onClose={() => setShowDuas(false)} />}
+        {showNamesOfAllah && <NamesOfAllah onClose={() => setShowNamesOfAllah(false)} />}
+        {showTasbih && <Tasbih onClose={() => setShowTasbih(false)} />}
       </div>
     </div>
   );
