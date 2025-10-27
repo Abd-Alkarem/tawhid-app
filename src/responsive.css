@@ -1,0 +1,788 @@
+/* ========================================
+   COMPREHENSIVE RESPONSIVE STYLES
+   For All Phone Sizes
+   ======================================== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  /* Audio Player */
+  .audio-player {
+    padding: 16px 12px;
+  }
+
+  .audio-player h3 {
+    font-size: 1.3rem;
+  }
+
+  .audio-controls button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .play-pause-btn {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  /* Reciter Selector */
+  .reciter-selector select {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  /* Surah Selector */
+  .surah-selector select {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav-container {
+    padding: 8px 4px;
+  }
+
+  .nav-item {
+    padding: 8px 4px;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile - Large (480px and below) */
+@media (max-width: 480px) {
+  /* App Layout */
+  .app-layout {
+    padding-bottom: 70px;
+  }
+
+  /* Audio Player */
+  .audio-player {
+    padding: 14px 10px;
+    margin: 0 8px 12px;
+  }
+
+  .audio-player h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .audio-controls {
+    gap: 12px;
+  }
+
+  .audio-controls button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .play-pause-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .audio-controls svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .play-pause-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Progress Bar */
+  .progress-info {
+    font-size: 0.8rem;
+  }
+
+  /* Reciter Selector */
+  .reciter-selector {
+    margin: 0 8px 12px;
+  }
+
+  .reciter-selector select {
+    font-size: 0.9rem;
+    padding: 9px 10px;
+  }
+
+  /* Surah Selector */
+  .surah-selector {
+    margin: 0 8px 12px;
+  }
+
+  .surah-selector select {
+    font-size: 0.9rem;
+    padding: 9px 10px;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav {
+    height: 65px;
+  }
+
+  .bottom-nav-container {
+    padding: 6px 2px;
+    gap: 2px;
+  }
+
+  .nav-item {
+    padding: 6px 2px;
+    min-width: 60px;
+  }
+
+  .nav-item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-label {
+    font-size: 0.65rem;
+    margin-top: 2px;
+  }
+
+  /* Quran Tabs */
+  .quran-tabs {
+    margin: 0 8px;
+  }
+
+  .tab-buttons {
+    gap: 6px;
+  }
+
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Juz/Surah Lists */
+  .juz-list, .surah-list {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .juz-card, .surah-card {
+    padding: 14px;
+  }
+
+  .juz-number, .surah-number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .juz-info h3, .surah-info h3 {
+    font-size: 1rem;
+  }
+
+  .juz-info p, .surah-info p {
+    font-size: 0.8rem;
+  }
+
+  /* Settings */
+  .settings-page {
+    padding: 12px;
+  }
+
+  .settings-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .settings-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .settings-item {
+    padding: 14px;
+  }
+
+  .settings-item-title {
+    font-size: 0.95rem;
+  }
+
+  .settings-item-description {
+    font-size: 0.8rem;
+  }
+
+  /* Prayer Times */
+  .prayer-times-page {
+    padding-bottom: 70px;
+  }
+
+  .prayer-times-header {
+    padding: 14px;
+  }
+
+  .prayer-times-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .prayer-card {
+    padding: 14px;
+  }
+
+  .prayer-name {
+    font-size: 1rem;
+  }
+
+  .prayer-time {
+    font-size: 1.3rem;
+  }
+
+  /* Islamic Calendar */
+  .calendar-page {
+    padding-bottom: 70px;
+  }
+
+  .calendar-header-main {
+    padding: 16px;
+  }
+
+  .calendar-header-main h2 {
+    font-size: 1.3rem;
+  }
+
+  .current-hijri-date {
+    padding: 32px 16px;
+  }
+
+  .hijri-large {
+    font-size: 3.5rem;
+  }
+
+  .hijri-month {
+    font-size: 1.6rem;
+  }
+
+  .hijri-year {
+    font-size: 1.1rem;
+  }
+
+  .timeline-item {
+    padding: 12px 10px;
+  }
+
+  .date-g {
+    min-width: 65px;
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .date-h {
+    font-size: 0.85rem;
+  }
+
+  /* Adhkar Page */
+  .adhkar-page {
+    padding-bottom: 70px;
+  }
+
+  .adhkar-header {
+    padding: 16px;
+  }
+
+  .adhkar-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .category-header {
+    padding: 14px 16px;
+  }
+
+  .category-title {
+    font-size: 1rem;
+  }
+
+  .adhkar-arabic {
+    font-size: 1.3rem;
+  }
+
+  /* Dua Page */
+  .dua-page {
+    padding-bottom: 70px;
+  }
+
+  .dua-header {
+    padding: 16px;
+  }
+
+  .dua-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .dua-arabic {
+    font-size: 1.4rem;
+  }
+
+  .dua-transliteration {
+    font-size: 0.9rem;
+  }
+
+  .dua-translation {
+    font-size: 0.9rem;
+  }
+
+  /* FAB Buttons */
+  .fab-container {
+    bottom: 75px;
+    right: 12px;
+  }
+
+  .hadith-search-fab {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mobile - Small (375px and below) */
+@media (max-width: 375px) {
+  /* Audio Player */
+  .audio-player {
+    padding: 12px 8px;
+  }
+
+  .audio-player h3 {
+    font-size: 1.1rem;
+  }
+
+  .audio-controls {
+    gap: 10px;
+  }
+
+  .audio-controls button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .play-pause-btn {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .audio-controls svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .play-pause-btn svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Selectors */
+  .reciter-selector select,
+  .surah-selector select {
+    font-size: 0.85rem;
+    padding: 8px 9px;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav {
+    height: 60px;
+  }
+
+  .nav-item {
+    min-width: 55px;
+  }
+
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-label {
+    font-size: 0.6rem;
+  }
+
+  /* Tabs */
+  .tab-button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Cards */
+  .juz-card, .surah-card {
+    padding: 12px;
+  }
+
+  .juz-number, .surah-number {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+
+  .juz-info h3, .surah-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .juz-info p, .surah-info p {
+    font-size: 0.75rem;
+  }
+
+  /* Calendar */
+  .hijri-large {
+    font-size: 3rem;
+  }
+
+  .hijri-month {
+    font-size: 1.4rem;
+  }
+
+  .current-hijri-date {
+    padding: 28px 14px;
+  }
+
+  /* Settings */
+  .settings-item {
+    padding: 12px;
+  }
+
+  .settings-item-title {
+    font-size: 0.9rem;
+  }
+
+  /* Prayer Times */
+  .prayer-card {
+    padding: 12px;
+  }
+
+  .prayer-name {
+    font-size: 0.95rem;
+  }
+
+  .prayer-time {
+    font-size: 1.2rem;
+  }
+
+  /* Adhkar/Dua */
+  .adhkar-arabic {
+    font-size: 1.2rem;
+  }
+
+  .dua-arabic {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile - Extra Small (320px and below) */
+@media (max-width: 320px) {
+  /* Audio Player */
+  .audio-player {
+    padding: 10px 6px;
+    margin: 0 6px 10px;
+  }
+
+  .audio-player h3 {
+    font-size: 1rem;
+  }
+
+  .audio-controls {
+    gap: 8px;
+  }
+
+  .audio-controls button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .play-pause-btn {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .audio-controls svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .play-pause-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .progress-info {
+    font-size: 0.75rem;
+  }
+
+  /* Selectors */
+  .reciter-selector,
+  .surah-selector {
+    margin: 0 6px 10px;
+  }
+
+  .reciter-selector select,
+  .surah-selector select {
+    font-size: 0.8rem;
+    padding: 7px 8px;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav {
+    height: 58px;
+  }
+
+  .nav-item {
+    min-width: 50px;
+    padding: 5px 1px;
+  }
+
+  .nav-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-label {
+    font-size: 0.55rem;
+  }
+
+  /* Tabs */
+  .quran-tabs {
+    margin: 0 6px;
+  }
+
+  .tab-button {
+    padding: 7px 10px;
+    font-size: 0.8rem;
+  }
+
+  /* Lists */
+  .juz-list, .surah-list {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .juz-card, .surah-card {
+    padding: 10px;
+  }
+
+  .juz-number, .surah-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .juz-info h3, .surah-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .juz-info p, .surah-info p {
+    font-size: 0.7rem;
+  }
+
+  /* Calendar */
+  .calendar-header-main {
+    padding: 14px;
+  }
+
+  .calendar-header-main h2 {
+    font-size: 1.2rem;
+  }
+
+  .current-hijri-date {
+    padding: 24px 12px;
+  }
+
+  .hijri-large {
+    font-size: 2.5rem;
+  }
+
+  .hijri-month {
+    font-size: 1.2rem;
+  }
+
+  .hijri-year {
+    font-size: 1rem;
+  }
+
+  .events-section {
+    padding: 14px;
+  }
+
+  .events-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-item {
+    padding: 10px 8px;
+    gap: 8px;
+  }
+
+  .date-g {
+    min-width: 60px;
+    font-size: 0.75rem;
+    padding: 5px 7px;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+
+  .date-h {
+    font-size: 0.8rem;
+  }
+
+  /* Settings */
+  .settings-page {
+    padding: 10px;
+  }
+
+  .settings-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .settings-section h3 {
+    font-size: 1rem;
+  }
+
+  .settings-item {
+    padding: 10px;
+  }
+
+  .settings-item-title {
+    font-size: 0.85rem;
+  }
+
+  .settings-item-description {
+    font-size: 0.75rem;
+  }
+
+  /* Prayer Times */
+  .prayer-times-header {
+    padding: 12px;
+  }
+
+  .prayer-times-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .prayer-card {
+    padding: 10px;
+  }
+
+  .prayer-name {
+    font-size: 0.9rem;
+  }
+
+  .prayer-time {
+    font-size: 1.1rem;
+  }
+
+  /* Adhkar/Dua */
+  .adhkar-header,
+  .dua-header {
+    padding: 14px;
+  }
+
+  .adhkar-header h2,
+  .dua-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .adhkar-content,
+  .dua-content {
+    padding: 10px;
+  }
+
+  .category-header {
+    padding: 12px 14px;
+  }
+
+  .category-title {
+    font-size: 0.95rem;
+  }
+
+  .category-icon {
+    font-size: 1.3rem;
+  }
+
+  .adhkar-arabic {
+    font-size: 1.1rem;
+  }
+
+  .dua-arabic {
+    font-size: 1.2rem;
+  }
+
+  .dua-transliteration,
+  .dua-translation {
+    font-size: 0.85rem;
+  }
+
+  .dua-reference {
+    font-size: 0.8rem;
+  }
+
+  /* FAB */
+  .fab-container {
+    bottom: 68px;
+    right: 10px;
+  }
+
+  .hadith-search-fab {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hadith-search-fab svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Landscape Mode for Small Phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .audio-player {
+    padding: 8px;
+  }
+
+  .audio-player h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .audio-controls {
+    gap: 8px;
+  }
+
+  .audio-controls button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .play-pause-btn {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .bottom-nav {
+    height: 55px;
+  }
+
+  .nav-item {
+    padding: 4px 2px;
+  }
+
+  .nav-item svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-label {
+    font-size: 0.55rem;
+  }
+
+  .quran-page-container {
+    padding: 16px 12px;
+    margin: 8px;
+  }
+
+  .quran-page-text {
+    font-size: 1.2rem;
+    line-height: 2;
+  }
+}

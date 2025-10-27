@@ -7,6 +7,8 @@ function QuranText({ surahData, currentAyah, onAyahClick, loading }) {
   const currentAyahRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAyahForTafsir, setSelectedAyahForTafsir] = useState(null);
+  const [longPressTimer, setLongPressTimer] = useState(null);
+  const [longPressAyah, setLongPressAyah] = useState(null);
 
   useEffect(() => {
     if (currentAyahRef.current) {
@@ -16,6 +18,47 @@ function QuranText({ surahData, currentAyah, onAyahClick, loading }) {
       });
     }
   }, [currentAyah]);
+
+  const handleTouchStart = (ayahNumber) => {
+    const timer = setTimeout(() => {
+      setSelectedAyahForTafsir(ayahNumber);
+      setLongPressAyah(null);
+    }, 500); // 500ms long press
+    setLongPressTimer(timer);
+    setLongPressAyah(ayahNumber);
+  };
+
+  const handleTouchEnd = (ayahNumber) => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    if (longPressAyah === ayahNumber) {
+      // Short tap - play ayah
+      onAyahClick(ayahNumber);
+    }
+    setLongPressAyah(null);
+  };
+
+  const handleMouseDown = (ayahNumber) => {
+    const timer = setTimeout(() => {
+      setSelectedAyahForTafsir(ayahNumber);
+      setLongPressAyah(null);
+    }, 500);
+    setLongPressTimer(timer);
+    setLongPressAyah(ayahNumber);
+  };
+
+  const handleMouseUp = (ayahNumber) => {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    if (longPressAyah === ayahNumber) {
+      onAyahClick(ayahNumber);
+    }
+    setLongPressAyah(null);
+  };
 
   // Function to remove Arabic diacritics for better search
   const removeDiacritics = (text) => {
@@ -65,32 +108,30 @@ function QuranText({ surahData, currentAyah, onAyahClick, loading }) {
         )}
       </div>
 
-      <div className="ayahs-container">
-        {filteredAyahs.map((ayah) => (
-          <div
-            key={ayah.numberInSurah}
-            ref={ayah.numberInSurah === currentAyah ? currentAyahRef : null}
-            className={`ayah ${ayah.numberInSurah === currentAyah ? 'highlighted-ayah' : ''}`}
-          >
-            <div onClick={() => onAyahClick(ayah.numberInSurah)}>
-              <p className="arabic-text">
-                {ayah.text}
-                <span className="ayah-number">﴿{ayah.numberInSurah}﴾</span>
-              </p>
-            </div>
-            <button 
-              className="tafsir-button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedAyahForTafsir(ayah.numberInSurah);
+      <div className="quran-page-container">
+        <p className="quran-page-text">
+          {filteredAyahs.map((ayah) => (
+            <span
+              key={ayah.numberInSurah}
+              ref={ayah.numberInSurah === currentAyah ? currentAyahRef : null}
+              className={`ayah-inline ${ayah.numberInSurah === currentAyah ? 'highlighted-ayah' : ''}`}
+              onTouchStart={() => handleTouchStart(ayah.numberInSurah)}
+              onTouchEnd={() => handleTouchEnd(ayah.numberInSurah)}
+              onMouseDown={() => handleMouseDown(ayah.numberInSurah)}
+              onMouseUp={() => handleMouseUp(ayah.numberInSurah)}
+              onMouseLeave={() => {
+                if (longPressTimer) {
+                  clearTimeout(longPressTimer);
+                  setLongPressTimer(null);
+                }
               }}
-              title="View Tafsir"
             >
-              <BookOpen size={16} />
-              <span>Tafsir</span>
-            </button>
-          </div>
-        ))}
+              {ayah.text}
+              <span className="ayah-number-inline">﴿{ayah.numberInSurah}﴾</span>
+              {' '}
+            </span>
+          ))}
+        </p>
       </div>
 
       {selectedAyahForTafsir && (

@@ -129,23 +129,223 @@
   font-size: 1.4rem;
 }
 
+.quran-page-container {
+  background: linear-gradient(to bottom, #fdfcfb 0%, #f8f6f0 100%);
+  border: 3px solid #d4af37;
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin: 16px;
+  margin-bottom: 100px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.quran-page-container::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.quran-page-text {
+  font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade', serif;
+  font-size: 1.75rem;
+  line-height: 2.2;
+  text-align: justify;
+  direction: rtl;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  word-spacing: 0.05em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ayah-inline {
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.ayah-inline:active {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.highlighted-ayah {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+  border-radius: 6px;
+  padding: 4px 6px;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  animation: pulse-highlight 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-highlight {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+  }
+}
+
+.ayah-number-inline {
+  display: inline-block;
+  margin: 0 3px;
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Tablet */
 @media (max-width: 768px) {
-  .quran-text {
-    padding: 20px;
-    max-height: 500px;
+  .quran-page-container {
+    padding: 24px 16px;
+    margin: 12px;
+    border-width: 2px;
+  }
+
+  .quran-page-text {
+    font-size: 1.6rem;
+    line-height: 2.1;
+  }
+
+  .ayah-number-inline {
+    font-size: 1.1rem;
+    margin: 0 2px;
   }
 
   .bismillah .arabic-text {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
-  .ayah .arabic-text {
+  .search-ayah-container {
+    padding: 10px 14px;
+  }
+
+  .search-ayah-input {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile - Large (iPhone 14 Pro Max, Galaxy S21+) */
+@media (max-width: 480px) {
+  .quran-page-container {
+    padding: 20px 14px;
+    margin: 10px 8px;
+    margin-bottom: 90px;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+
+  .quran-page-container::before {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .quran-page-text {
     font-size: 1.4rem;
-    line-height: 2.5rem;
+    line-height: 2;
   }
 
-  .ayah-number {
+  .ayah-number-inline {
+    font-size: 1rem;
+    margin: 0 2px;
+  }
+
+  .bismillah {
+    padding: 16px 12px;
+  }
+
+  .bismillah .arabic-text {
+    font-size: 1.4rem;
+  }
+
+  .search-ayah-container {
+    padding: 8px 12px;
+    margin: 0 8px 12px;
+  }
+
+  .search-ayah-input {
+    font-size: 0.9rem;
+    padding: 8px 12px 8px 36px;
+  }
+
+  .search-icon {
+    left: 10px;
+  }
+
+  .search-results-count {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}
+
+/* Mobile - Small (iPhone SE, iPhone 12 mini) */
+@media (max-width: 375px) {
+  .quran-page-container {
+    padding: 16px 12px;
+    margin: 8px 6px;
+    margin-bottom: 85px;
+  }
+
+  .quran-page-text {
+    font-size: 1.3rem;
+    line-height: 1.9;
+  }
+
+  .ayah-number-inline {
+    font-size: 0.95rem;
+    margin: 0 2px;
+  }
+
+  .bismillah .arabic-text {
+    font-size: 1.3rem;
+  }
+
+  .search-ayah-container {
+    margin: 0 6px 10px;
+  }
+}
+
+/* Mobile - Extra Small (iPhone SE 1st gen, small Android) */
+@media (max-width: 320px) {
+  .quran-page-container {
+    padding: 14px 10px;
+    margin: 6px 4px;
+    margin-bottom: 80px;
+  }
+
+  .quran-page-text {
     font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .ayah-number-inline {
+    font-size: 0.9rem;
+    margin: 0 2px;
+  }
+
+  .bismillah {
+    padding: 12px 8px;
+  }
+
+  .bismillah .arabic-text {
+    font-size: 1.2rem;
+  }
+
+  .search-ayah-input {
+    font-size: 0.85rem;
   }
 }
 

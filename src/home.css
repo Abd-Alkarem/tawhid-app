@@ -1,0 +1,157 @@
+/* Home Page Styles */
+.home-content {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-welcome {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-welcome h1 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 2rem;
+  margin: 0 0 10px;
+}
+
+.home-welcome p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+.quick-access-card {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.quick-access-card .card-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.quick-access-card h3 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.3rem;
+  color: #1f2937;
+  margin: 0 0 8px;
+}
+
+.quick-access-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Quran Reader Header */
+.quran-reader-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-list-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.back-to-list-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.quran-reader-header h2 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.5rem;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .home-content {
+    padding: 12px;
+  }
+
+  .home-welcome {
+    padding: 30px 16px;
+  }
+
+  .home-welcome h1 {
+    font-size: 1.6rem;
+  }
+
+  .home-welcome p {
+    font-size: 1rem;
+  }
+
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .quick-access-card {
+    padding: 24px 16px;
+  }
+
+  .quick-access-card .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .quick-access-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .quran-reader-header {
+    padding: 12px 16px;
+  }
+
+  .quran-reader-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .back-to-list-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}

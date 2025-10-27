@@ -20,6 +20,8 @@ import QuranTabs from './components/QuranTabs';
 import AdhkarPage from './components/AdhkarPage';
 import DuaPage from './components/DuaPage';
 import './App.css';
+import './responsive.css';
+import './home.css';
 
 function App() {
   const [selectedReciter, setSelectedReciter] = useState(reciters[0]);
@@ -28,7 +30,8 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [surahData, setSurahData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState('quran'); // Bottom nav active tab
+  const [activeTab, setActiveTab] = useState('home'); // Bottom nav active tab
+  const [showQuranReader, setShowQuranReader] = useState(false); // Show full Quran reader
   const [showQibla, setShowQibla] = useState(false);
   const [showBooks, setShowBooks] = useState(false);
   const [showHadith, setShowHadith] = useState(false);
@@ -38,6 +41,8 @@ function App() {
   const [showNamesOfAllah, setShowNamesOfAllah] = useState(false);
   const [showTasbih, setShowTasbih] = useState(false);
   const audioRef = useRef(null);
+  const nextAudioRef = useRef(null); // For preloading next ayah
+  const audioQueue = useRef([]); // Queue of preloaded audio elements
 
   // Fetch Quran text data
   useEffect(() => {
@@ -102,12 +107,28 @@ function App() {
     return `https://everyayah.com/data/${selectedReciter.subfolder}/${paddedSurah}${paddedAyah}.mp3`;
   };
 
+  const preloadNextAyahs = (ayahNumber) => {
+    // Preload next 2 ayahs for smoother playback
+    if (nextAudioRef.current && ayahNumber < selectedSurah.ayahs) {
+      const nextUrl = getAudioUrl(selectedSurah.number, ayahNumber + 1);
+      nextAudioRef.current.src = nextUrl;
+      nextAudioRef.current.load();
+    }
+  };
+
   const playAyah = (ayahNumber) => {
     if (audioRef.current) {
-      audioRef.current.src = getAudioUrl(selectedSurah.number, ayahNumber);
-      audioRef.current.play();
+      const audioUrl = getAudioUrl(selectedSurah.number, ayahNumber);
+      audioRef.current.src = audioUrl;
+      audioRef.current.load(); // Force immediate load
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
       setCurrentAyah(ayahNumber);
       setIsPlaying(true);
+      
+      // Preload next ayah immediately
+      preloadNextAyahs(ayahNumber);
     }
   };
 
@@ -152,7 +173,36 @@ function App() {
   };
 
   const handleAudioEnded = () => {
-    handleNext();
+    // Instantly switch to next ayah to minimize gap
+    if (currentAyah < selectedSurah.ayahs) {
+      const nextAyahNumber = currentAyah + 1;
+      
+      if (audioRef.current) {
+        const nextUrl = getAudioUrl(selectedSurah.number, nextAyahNumber);
+        audioRef.current.src = nextUrl;
+        
+        // Play immediately - no waiting
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.error('Error playing next ayah:', error);
+          });
+        }
+        
+        // Update current ayah AFTER starting playback for smoother transition
+        setCurrentAyah(nextAyahNumber);
+        
+        // Preload the one after
+        preloadNextAyahs(nextAyahNumber);
+      }
+    } else if (selectedSurah.number < 114) {
+      // Move to next surah
+      const nextSurah = surahs.find(s => s.number === selectedSurah.number + 1);
+      setSelectedSurah(nextSurah);
+      setCurrentAyah(1);
+    } else {
+      setIsPlaying(false);
+    }
   };
 
   const handleReciterChange = (reciter) => {
@@ -164,6 +214,40 @@ function App() {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+    if (tab === 'quran') {
+      setShowQuranReader(false); // Show list view when switching to Quran tab
+    }
+  };
+
+  const handleSurahSelect = (surah) => {
+    setSelectedSurah(surah);
+    setCurrentAyah(1);
+    setShowQuranReader(true); // Show reader when surah selected
+  };
+
+  const handleJuzSelect = (juzNumber) => {
+    // Find first surah of the juz
+    const juzStartSurahs = {
+      1: 1, 2: 2, 3: 2, 4: 3, 5: 4, 6: 4, 7: 5, 8: 6, 9: 7, 10: 8,
+      11: 9, 12: 11, 13: 12, 14: 15, 15: 17, 16: 18, 17: 21, 18: 23,
+      19: 25, 20: 27, 21: 29, 22: 33, 23: 36, 24: 39, 25: 41, 26: 46,
+      27: 51, 28: 58, 29: 67, 30: 78
+    };
+    const surahNumber = juzStartSurahs[juzNumber] || 1;
+    const surah = surahs.find(s => s.number === surahNumber);
+    if (surah) {
+      setSelectedSurah(surah);
+      setCurrentAyah(1);
+      setShowQuranReader(true); // Show reader when juz selected
+    }
+  };
+
+  const handleBackToList = () => {
+    setShowQuranReader(false);
+    setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
   };
 
   return (
@@ -171,33 +255,15 @@ function App() {
       {/* Conditional rendering based on active tab */}
       {activeTab === 'quran' ? (
         <>
-          <QuranTabs 
-            surahs={surahs}
-            onSurahSelect={setSelectedSurah}
-            onJuzSelect={(juzNumber) => {
-              console.log('Selected Juz:', juzNumber);
-              // Handle Juz selection
-            }}
-          />
-          
-          <audio
-            ref={audioRef}
-            onEnded={handleAudioEnded}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-          />
-        </>
-      ) : activeTab === 'home' ? (
-        <>
-          <Header 
-            onPrayerTimesClick={() => setShowPrayerTimes(true)}
-            onDuasClick={() => setShowDuas(true)}
-            onNamesClick={() => setShowNamesOfAllah(true)}
-            onTasbihClick={() => setShowTasbih(true)}
-          />
-          
-          <div className="container">
-            <div className="controls-section">
+          {showQuranReader ? (
+            <>
+              <div className="quran-reader-header">
+                <button className="back-to-list-btn" onClick={handleBackToList}>
+                  ← Back to List
+                </button>
+                <h2>{selectedSurah.nameArabic}</h2>
+              </div>
+              
               <ReciterSelector
                 reciters={reciters}
                 selectedReciter={selectedReciter}
@@ -209,31 +275,82 @@ function App() {
                 selectedSurah={selectedSurah}
                 onSurahChange={setSelectedSurah}
               />
+
+              <AudioPlayer
+                isPlaying={isPlaying}
+                onPlayPause={handlePlayPause}
+                onNext={handleNext}
+                onPrevious={handlePrevious}
+                currentAyah={currentAyah}
+                totalAyahs={selectedSurah.ayahs}
+                surahName={selectedSurah.nameArabic}
+              />
+
+              <QuranText
+                surahData={surahData}
+                currentAyah={currentAyah}
+                onAyahClick={playAyah}
+                loading={loading}
+              />
+
+              <audio
+                ref={audioRef}
+                onEnded={handleAudioEnded}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                preload="auto"
+              />
+              
+              <audio ref={nextAudioRef} preload="auto" style={{ display: 'none' }} />
+            </>
+          ) : (
+            <QuranTabs 
+              surahs={surahs}
+              onSurahSelect={handleSurahSelect}
+              onJuzSelect={handleJuzSelect}
+            />
+          )}
+        </>
+      ) : activeTab === 'home' ? (
+        <>
+          <Header 
+            onPrayerTimesClick={() => setShowPrayerTimes(true)}
+            onDuasClick={() => setShowDuas(true)}
+            onNamesClick={() => setShowNamesOfAllah(true)}
+            onTasbihClick={() => setShowTasbih(true)}
+          />
+          
+          <div className="home-content">
+            <div className="home-welcome">
+              <h1>بسم الله الرحمن الرحيم</h1>
+              <p>Welcome to Tawhid App</p>
             </div>
-
-            <AudioPlayer
-              isPlaying={isPlaying}
-              onPlayPause={handlePlayPause}
-              onNext={handleNext}
-              onPrevious={handlePrevious}
-              currentAyah={currentAyah}
-              totalAyahs={selectedSurah.ayahs}
-              surahName={selectedSurah.nameArabic}
-            />
-
-            <QuranText
-              surahData={surahData}
-              currentAyah={currentAyah}
-              onAyahClick={playAyah}
-              loading={loading}
-            />
-
-            <audio
-              ref={audioRef}
-              onEnded={handleAudioEnded}
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            />
+            
+            <div className="quick-access-grid">
+              <button className="quick-access-card" onClick={() => setActiveTab('quran')}>
+                <span className="card-icon">📖</span>
+                <h3>القرآن الكريم</h3>
+                <p>Read and Listen</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setActiveTab('prayer')}>
+                <span className="card-icon">🕌</span>
+                <h3>أوقات الصلاة</h3>
+                <p>Prayer Times</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setActiveTab('library')}>
+                <span className="card-icon">📿</span>
+                <h3>الأذكار والأدعية</h3>
+                <p>Adhkar & Duas</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowTasbih(true)}>
+                <span className="card-icon">🤲</span>
+                <h3>التسبيح</h3>
+                <p>Tasbih Counter</p>
+              </button>
+            </div>
 
             {/* Floating Action Buttons */}
             <div className="fab-container">
