@@ -19,6 +19,7 @@ import BottomNav from './components/BottomNav';
 import QuranTabs from './components/QuranTabs';
 import AdhkarPage from './components/AdhkarPage';
 import DuaPage from './components/DuaPage';
+import IslamicLibrary from './components/IslamicLibrary';
 import './App.css';
 import './responsive.css';
 import './home.css';
@@ -40,6 +41,7 @@ function App() {
   const [showDuas, setShowDuas] = useState(false);
   const [showNamesOfAllah, setShowNamesOfAllah] = useState(false);
   const [showTasbih, setShowTasbih] = useState(false);
+  const [showIslamicLibrary, setShowIslamicLibrary] = useState(false);
   const audioRef = useRef(null);
   const nextAudioRef = useRef(null); // For preloading next ayah
   const audioQueue = useRef([]); // Queue of preloaded audio elements
@@ -333,6 +335,12 @@ function App() {
                 <p>Read and Listen</p>
               </button>
               
+              <button className="quick-access-card" onClick={() => setShowIslamicLibrary(true)}>
+                <span className="card-icon">📚</span>
+                <h3>المكتبة الإسلامية</h3>
+                <p>Islamic Books</p>
+              </button>
+              
               <button className="quick-access-card" onClick={() => setActiveTab('prayer')}>
                 <span className="card-icon">🕌</span>
                 <h3>أوقات الصلاة</h3>
@@ -467,6 +475,7 @@ function App() {
       {showDuas && <Duas onClose={() => setShowDuas(false)} />}
       {showNamesOfAllah && <NamesOfAllah onClose={() => setShowNamesOfAllah(false)} />}
       {showTasbih && <Tasbih onClose={() => setShowTasbih(false)} />}
+      {showIslamicLibrary && <IslamicLibrary onClose={() => setShowIslamicLibrary(false)} />}
     </div>
   );
 }

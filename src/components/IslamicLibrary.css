@@ -1,0 +1,713 @@
+/* Islamic Library Styles */
+.islamic-library-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.islamic-library-container {
+  background: white;
+  border-radius: 20px;
+  width: min(1000px, calc(100% - 24px));
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.library-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.library-header h2 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Search */
+.library-search {
+  padding: 18px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9fafb;
+}
+
+.library-search input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  direction: rtl;
+  transition: all 0.2s;
+}
+
+.library-search input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Categories */
+.library-categories {
+  display: flex;
+  gap: 8px;
+  padding: 14px 24px;
+  overflow-x: auto;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  scroll-snap-type: x mandatory;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+}
+
+.category-btn:hover {
+  border-color: #667eea;
+  background: #f3f4f6;
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.category-icon {
+  font-size: 1.2rem;
+}
+
+/* Books Grid */
+.books-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  background: #f9fafb;
+}
+
+.book-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 9px rgba(102, 126, 234, 0.08);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.book-cover {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.priority-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ef4444;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.book-info {
+  padding: 14px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-info h3 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.1rem;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+  direction: rtl;
+}
+
+.book-author {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  direction: rtl;
+}
+
+.book-category {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  align-self: flex-start;
+}
+
+.book-actions {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-read,
+.btn-download {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  transition: all 0.2s;
+}
+
+.btn-read {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-read:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-download {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.btn-download:hover {
+  background: #e5e7eb;
+}
+
+/* Book Viewer Modal */
+.book-viewer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  padding: 20px;
+}
+
+.book-viewer {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.viewer-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewer-header h3 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.viewer-header button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.viewer-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 16px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #667eea;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.viewer-content {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.book-details {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.book-cover-large {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-meta h4 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin: 0;
+  direction: rtl;
+}
+
+.book-meta p {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+  direction: rtl;
+}
+
+.book-description {
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 8px;
+  border-right: 4px solid #667eea;
+  margin: 12px 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6;
+  color: #374151 !important;
+}
+
+.read-online-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.read-online-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.viewer-note {
+  background: #f0fdf4;
+  border: 2px solid #86efac;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.viewer-note p {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+  color: #166534;
+  margin: 8px 0;
+  direction: rtl;
+}
+
+/* Book Actions in Viewer */
+.book-actions-viewer {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.external-link-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: #f3f4f6;
+  color: #1f2937;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+  transition: all 0.2s;
+  border: 2px solid #e5e7eb;
+}
+
+.external-link-btn:hover {
+  background: #e5e7eb;
+  border-color: #667eea;
+}
+
+/* Embedded Book Reader */
+.book-reader-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+}
+
+.reader-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reader-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.reader-title h3 {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.reader-author {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.close-reader-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-reader-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.reader-content {
+  flex: 1;
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+.book-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.reader-footer {
+  background: #f3f4f6;
+  padding: 12px 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: center;
+}
+
+.open-external-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: white;
+  color: #667eea;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border: 2px solid #667eea;
+}
+
+.open-external-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .books-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .islamic-library-container {
+    width: min(880px, calc(100% - 20px));
+    max-height: 92vh;
+    border-radius: 18px;
+  }
+
+  .library-search {
+    padding: 16px 20px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 18px 20px 22px;
+  }
+
+  .category-btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .islamic-library-overlay {
+    padding: 14px;
+  }
+
+  .islamic-library-container {
+    border-radius: 18px;
+    width: 100%;
+    max-height: 95vh;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 16px 18px 20px;
+  }
+
+  .book-cover {
+    height: 210px;
+  }
+
+  .library-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .book-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-cover-large {
+    width: 150px;
+    height: 210px;
+  }
+
+  .reader-title h3 {
+    font-size: 1.2rem;
+  }
+
+  .reader-author {
+    display: none;
+  }
+
+  .book-actions-viewer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .islamic-library-overlay {
+    padding: 10px;
+  }
+
+  .islamic-library-container {
+    border-radius: 16px;
+    max-height: 96vh;
+  }
+
+  .library-header {
+    padding: 16px;
+  }
+
+  .library-categories {
+    padding: 10px 14px;
+  }
+
+  .category-btn {
+    padding: 7px 14px;
+    font-size: 0.88rem;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 14px 16px 18px;
+  }
+
+  .book-info h3 {
+    font-size: 1rem;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+  }
+
+  .book-actions {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px 16px;
+  }
+
+  .btn-read,
+  .btn-download {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .library-search {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .library-search input {
+    padding: 11px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .library-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .category-btn {
+    font-size: 0.82rem;
+    padding: 6px 12px;
+  }
+}
