@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, BookOpen, Compass, BookMarked, Settings as SettingsIcon } from 'lucide-react';
+import { Home, BookOpen, Compass, MessageSquare, Settings as SettingsIcon } from 'lucide-react';
 import './BottomNav.css';
 
 const BottomNav = ({ activeTab, onTabChange }) => {
@@ -7,6 +7,7 @@ const BottomNav = ({ activeTab, onTabChange }) => {
     { id: 'home', icon: Home, label: { ar: 'الرئيسية', en: 'Home' } },
     { id: 'quran', icon: BookOpen, label: { ar: 'القرآن', en: 'Quran' } },
     { id: 'prayer', icon: Compass, label: { ar: 'الصلاة', en: 'Prayer' } },
+    { id: 'social', icon: MessageSquare, label: { ar: 'المنشورات', en: 'Posts' } },
     { id: 'more', icon: SettingsIcon, label: { ar: 'المزيد', en: 'More' } }
   ];
 

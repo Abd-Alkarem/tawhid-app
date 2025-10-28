@@ -97,13 +97,16 @@ const Auth = ({ onClose, onLogin }) => {
       // Create pending user with encrypted data
       const hashedPassword = await encryption.hashPassword(formData.password);
       
+      // Check if an owner already exists (prevent multiple owners)
+      const hasOwner = users.some(u => u.role === 'owner');
+      
       const newUser = {
         id: Date.now().toString(),
         name: encryption.encrypt(formData.name),
         email: encryption.encrypt(formData.email),
         phone: formData.phone ? encryption.encrypt(formData.phone) : null,
         password: hashedPassword,
-        role: users.length === 0 ? 'owner' : 'user',
+        role: hasOwner ? 'user' : 'owner', // Only first user ever becomes owner
         createdAt: new Date().toISOString(),
         avatar: null,
         verified: false

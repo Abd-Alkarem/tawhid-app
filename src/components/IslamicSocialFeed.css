@@ -1,0 +1,1050 @@
+/* Islamic Social Feed - Matching App Theme */
+
+.islamic-social-container {
+  background: #f9fafb;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* Header */
+.social-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.social-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+/* Search Bar */
+.search-container {
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.search-box-islamic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.search-box-islamic:focus-within {
+  background: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-box-islamic svg {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.search-box-islamic input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #1f2937;
+  font-size: 15px;
+  outline: none;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.search-box-islamic input::placeholder {
+  color: #9ca3af;
+}
+
+.clear-search-btn {
+  width: 24px;
+  height: 24px;
+  background: #667eea;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.clear-search-btn:hover {
+  background: #5568d3;
+}
+
+/* Tabs */
+.feed-tabs-islamic {
+  display: flex;
+  background: white;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 0 16px;
+}
+
+.tab-islamic {
+  flex: 1;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.tab-islamic:hover {
+  color: #667eea;
+}
+
+.tab-islamic.active {
+  color: #667eea;
+}
+
+.tab-islamic.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Profile Section */
+.profile-section-islamic {
+  background: white;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.profile-header-islamic {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-avatar-islamic {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.profile-avatar-islamic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar-islamic:hover::after {
+  content: '📷';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.profile-info-islamic {
+  flex: 1;
+}
+
+.profile-name-islamic {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.profile-stats-islamic {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.profile-stats-islamic span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.profile-stats-islamic span:hover {
+  color: #667eea;
+}
+
+.upload-photo-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.upload-photo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Post Composer */
+.post-composer-islamic {
+  background: white;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.composer-header-islamic {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.composer-avatar-islamic {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.composer-avatar-islamic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.composer-input-islamic {
+  flex: 1;
+}
+
+.composer-input-islamic textarea {
+  width: 100%;
+  min-height: 100px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  color: #1f2937;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.composer-input-islamic textarea:focus {
+  background: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.composer-input-islamic textarea::placeholder {
+  color: #9ca3af;
+}
+
+.composer-footer-islamic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.composer-tools-islamic {
+  display: flex;
+  gap: 8px;
+}
+
+.tool-btn-islamic {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #667eea;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.tool-btn-islamic:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.composer-submit-islamic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.char-counter-islamic {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.char-counter-islamic.warning {
+  color: #ef4444;
+}
+
+.post-btn-islamic {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.post-btn-islamic:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.post-btn-islamic:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Posts Feed */
+.posts-feed-islamic {
+  padding: 0 16px 16px;
+}
+
+.post-card-islamic {
+  background: white;
+  margin-bottom: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.post-card-islamic:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.post-header-islamic {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.post-avatar-islamic {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.post-avatar-islamic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-info-islamic {
+  flex: 1;
+}
+
+.post-author-islamic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.author-name-islamic {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.role-badge-islamic {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.role-badge-islamic.owner {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+}
+
+.role-badge-islamic.admin {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.post-time-islamic {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.post-menu-islamic {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.post-menu-islamic:hover {
+  background: #f3f4f6;
+  color: #667eea;
+}
+
+.post-content-islamic {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 12px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.hashtag-islamic {
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.hashtag-islamic:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}
+
+.mention-islamic {
+  color: #764ba2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mention-islamic:hover {
+  color: #6b3fa0;
+  text-decoration: underline;
+}
+
+.hashtags-container-islamic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.hashtag-badge-islamic {
+  padding: 6px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hashtag-badge-islamic:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-1px);
+}
+
+.post-actions-islamic {
+  display: flex;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 12px;
+}
+
+.action-btn-islamic {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.action-btn-islamic:hover {
+  background: #f3f4f6;
+  color: #667eea;
+}
+
+.action-btn-islamic.liked {
+  color: #ef4444;
+}
+
+.action-btn-islamic.liked svg {
+  fill: #ef4444;
+}
+
+.follow-section-islamic {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.follow-btn-islamic {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.follow-btn-islamic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.follow-btn-islamic.following {
+  background: white;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+}
+
+.follow-btn-islamic.following:hover {
+  background: #fef2f2;
+}
+
+/* Search Results */
+.search-results-islamic {
+  background: white;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.search-results-islamic h3 {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.search-section-islamic {
+  margin-bottom: 24px;
+}
+
+.search-section-islamic h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.user-result-islamic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.user-result-islamic:hover {
+  background: #f9fafb;
+}
+
+.user-result-avatar-islamic {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.user-result-avatar-islamic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-result-info-islamic {
+  flex: 1;
+}
+
+.user-result-name-islamic {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.user-result-stats-islamic {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Trending Widget */
+.trending-widget-islamic {
+  background: white;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.trending-widget-islamic h2 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.trending-item-islamic {
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 8px;
+}
+
+.trending-item-islamic:hover {
+  background: #f9fafb;
+}
+
+.trending-tag-islamic {
+  font-size: 15px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 4px;
+}
+
+.trending-count-islamic {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Empty States */
+.empty-state-islamic {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state-islamic h2 {
+  margin: 16px 0 8px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.empty-state-islamic p {
+  margin: 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.empty-icon-islamic {
+  font-size: 64px;
+  opacity: 0.5;
+}
+
+/* Login Prompt */
+.login-prompt-islamic {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  margin: 16px;
+  padding: 40px 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.login-prompt-islamic h3 {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.login-prompt-islamic p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.login-btn-islamic {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.login-btn-islamic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Reply Indicator */
+.reply-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 8px 0;
+  padding: 6px 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+/* Quoted Post */
+.quoted-post-islamic {
+  margin: 12px 0;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quoted-post-islamic:hover {
+  border-color: #667eea;
+  background: white;
+}
+
+.quoted-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.quoted-author {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.quoted-time {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.quoted-content {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.4;
+}
+
+/* Retweet indicator */
+.action-btn-islamic.retweeted {
+  color: #10b981;
+}
+
+.action-btn-islamic.retweeted svg {
+  fill: #10b981;
+}
+
+/* Thread Toggle */
+.thread-toggle-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: right;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.thread-toggle-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+}
+
+/* Thread Reply */
+.thread-reply {
+  position: relative;
+  margin-top: 12px;
+  padding-right: 20px;
+}
+
+.reply-line {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.reply-content-wrapper {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.post-avatar-islamic.small {
+  width: 36px;
+  height: 36px;
+}
+
+.post-actions-islamic.small {
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.post-actions-islamic.small .action-btn-islamic {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content-islamic {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.original-post-preview,
+.quoted-post-preview {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.reply-composer {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+}
+
+.reply-composer textarea {
+  flex: 1;
+  min-height: 100px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  color: #1f2937;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.reply-composer textarea:focus {
+  background: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.composer-avatar-islamic.small {
+  width: 36px;
+  height: 36px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .social-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-section-islamic {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  .post-composer-islamic {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  .post-card-islamic {
+    margin: 0 12px 12px;
+    padding: 16px;
+  }
+
+  .trending-widget-islamic {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  .modal-content-islamic {
+    max-height: 90vh;
+    margin: 10px;
+  }
+
+  .thread-reply {
+    padding-right: 12px;
+  }
+
+  .reply-line {
+    right: 18px;
+  }
+}

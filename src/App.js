@@ -23,6 +23,10 @@ import IslamicLibrary from './components/IslamicLibrary';
 import ZakatCalculator from './components/ZakatCalculator';
 import Auth from './components/Auth';
 import Profile from './components/Profile';
+import SocialFeed from './components/SocialFeed';
+import TwitterFeed from './components/TwitterFeed';
+import EnhancedTwitterFeed from './components/EnhancedTwitterFeed';
+import IslamicSocialFeed from './components/IslamicSocialFeed';
 import './utils/migrateUsers'; // Import migration tools
 import './App.css';
 import './responsive.css';
@@ -61,6 +65,19 @@ function App() {
     if (savedUser) {
       setCurrentUser(JSON.parse(savedUser));
     }
+
+    // Listen for hash changes to open login modal
+    const handleHashChange = () => {
+      if (window.location.hash === '#login') {
+        setShowAuth(true);
+        window.location.hash = ''; // Clear hash
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Check on mount
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   // Fetch Quran text data
@@ -415,6 +432,8 @@ function App() {
         </>
       ) : activeTab === 'prayer' ? (
         <PrayerTimes mode="page" />
+      ) : activeTab === 'social' ? (
+        <IslamicSocialFeed currentUser={currentUser} onOpenAuth={() => setShowAuth(true)} />
       ) : activeTab === 'calendar' ? (
         <IslamicCalendar mode="page" />
       ) : activeTab === 'more' ? (

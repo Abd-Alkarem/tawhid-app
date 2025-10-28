@@ -1,0 +1,378 @@
+@import './TwitterFeed.css';
+
+/* Enhanced Features */
+
+/* Profile Picture Upload */
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.tweet-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.composer-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.suggestion-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-result-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.icon-btn-small {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #1d9bf0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.icon-btn-small:hover {
+  background: rgba(29, 155, 240, 0.1);
+}
+
+.profile-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #71767b;
+  margin-top: 2px;
+}
+
+.profile-stats span {
+  cursor: pointer;
+}
+
+.profile-stats span:hover {
+  text-decoration: underline;
+}
+
+.profile-upload-box {
+  background: #16181c;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px;
+  border: 1px solid #2f3336;
+}
+
+.profile-upload-box h4 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #e7e9ea;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #1d9bf0;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+
+.upload-btn:hover {
+  background: #1a8cd8;
+}
+
+/* Search Bar */
+.main-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #202327;
+  border-radius: 9999px;
+  padding: 12px 16px;
+  margin: 12px 16px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.main-search:focus-within {
+  background: #000;
+  border-color: #1d9bf0;
+}
+
+.main-search svg {
+  color: #71767b;
+  flex-shrink: 0;
+}
+
+.main-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e7e9ea;
+  font-size: 15px;
+  outline: none;
+}
+
+.main-search input::placeholder {
+  color: #71767b;
+}
+
+.clear-search {
+  width: 22px;
+  height: 22px;
+  background: #1d9bf0;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Search Results */
+.search-results {
+  border-bottom: 1px solid #2f3336;
+  padding: 16px;
+}
+
+.search-results h3 {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #e7e9ea;
+}
+
+.search-section {
+  margin-bottom: 24px;
+}
+
+.search-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #71767b;
+}
+
+.user-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.user-result:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.user-result-avatar {
+  width: 48px;
+  height: 48px;
+  background: #1d9bf0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.user-result-info {
+  flex: 1;
+}
+
+.user-result-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e7e9ea;
+}
+
+.user-result-stats {
+  font-size: 14px;
+  color: #71767b;
+}
+
+.follow-btn-small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: #eff3f4;
+  color: #0f1419;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.follow-btn-small:hover {
+  background: #d7dbdc;
+}
+
+.follow-btn-small.following {
+  background: transparent;
+  color: #f4212e;
+  border: 1px solid #536471;
+}
+
+.follow-btn-small.following:hover {
+  background: rgba(244, 33, 46, 0.1);
+  border-color: #f4212e;
+}
+
+/* Hashtags and Mentions */
+.hashtag {
+  color: #1d9bf0;
+  cursor: pointer;
+}
+
+.hashtag:hover {
+  text-decoration: underline;
+}
+
+.mention {
+  color: #1d9bf0;
+  cursor: pointer;
+}
+
+.mention:hover {
+  text-decoration: underline;
+}
+
+.tweet-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.hashtag-badge {
+  background: rgba(29, 155, 240, 0.1);
+  color: #1d9bf0;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hashtag-badge:hover {
+  background: rgba(29, 155, 240, 0.2);
+}
+
+/* Follow Button in Tweet */
+.tweet-follow {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #2f3336;
+}
+
+.follow-btn-inline {
+  padding: 6px 16px;
+  background: #eff3f4;
+  color: #0f1419;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.follow-btn-inline:hover {
+  background: #d7dbdc;
+}
+
+.follow-btn-inline.following {
+  background: transparent;
+  color: #f4212e;
+  border: 1px solid #536471;
+}
+
+.follow-btn-inline.following:hover {
+  background: rgba(244, 33, 46, 0.1);
+  border-color: #f4212e;
+}
+
+.follow-btn-inline.following::before {
+  content: 'إلغاء المتابعة';
+}
+
+/* Empty States */
+.no-trends,
+.no-suggestions {
+  padding: 16px;
+  text-align: center;
+  color: #71767b;
+  font-size: 14px;
+}
+
+/* Real Views Counter */
+.action-btn-twitter.views {
+  color: #71767b;
+}
+
+.action-btn-twitter.views:hover {
+  color: #1d9bf0;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 600px) {
+  .main-search {
+    margin: 8px;
+  }
+
+  .search-results {
+    padding: 12px;
+  }
+
+  .user-result {
+    padding: 8px;
+  }
+
+  .tweet-hashtags {
+    gap: 6px;
+  }
+
+  .hashtag-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+
+  .profile-upload-box {
+    margin: 8px;
+  }
+}
