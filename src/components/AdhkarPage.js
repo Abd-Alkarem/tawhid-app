@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Bookmark, Copy, Share2 } from 'lucide-react';
+import { ChevronDown, Bookmark, Copy, Share2, X } from 'lucide-react';
 import './AdhkarPage.css';
 
-const AdhkarPage = () => {
+const AdhkarPage = ({ onClose }) => {
   const [adhkar, setAdhkar] = useState([]);
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -87,11 +87,15 @@ const AdhkarPage = () => {
   };
 
   return (
-    <div className="adhkar-page">
-      <div className="adhkar-header">
-        <h2>الأذكار</h2>
-      </div>
-      <div className="adhkar-content">
+    <div className="adhkar-modal-overlay" onClick={onClose}>
+      <div className="adhkar-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="adhkar-header">
+          <h2>الأذكار</h2>
+          <button className="close-button" onClick={onClose}>
+            <X size={24} />
+          </button>
+        </div>
+        <div className="adhkar-content">
         {loading ? (
           <div className="loading">جاري التحميل...</div>
         ) : (
@@ -120,6 +124,7 @@ const AdhkarPage = () => {
             </div>
           ))
         )}
+        </div>
       </div>
     </div>
   );

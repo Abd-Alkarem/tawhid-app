@@ -20,6 +20,10 @@ import QuranTabs from './components/QuranTabs';
 import AdhkarPage from './components/AdhkarPage';
 import DuaPage from './components/DuaPage';
 import IslamicLibrary from './components/IslamicLibrary';
+import ZakatCalculator from './components/ZakatCalculator';
+import Auth from './components/Auth';
+import Profile from './components/Profile';
+import './utils/migrateUsers'; // Import migration tools
 import './App.css';
 import './responsive.css';
 import './home.css';
@@ -42,9 +46,22 @@ function App() {
   const [showNamesOfAllah, setShowNamesOfAllah] = useState(false);
   const [showTasbih, setShowTasbih] = useState(false);
   const [showIslamicLibrary, setShowIslamicLibrary] = useState(false);
+  const [showZakatCalculator, setShowZakatCalculator] = useState(false);
+  const [showAdhkar, setShowAdhkar] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const audioRef = useRef(null);
   const nextAudioRef = useRef(null); // For preloading next ayah
   const audioQueue = useRef([]); // Queue of preloaded audio elements
+
+  // Check for logged-in user on mount
+  useEffect(() => {
+    const savedUser = localStorage.getItem('tawhid_current_user');
+    if (savedUser) {
+      setCurrentUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   // Fetch Quran text data
   useEffect(() => {
@@ -316,10 +333,9 @@ function App() {
       ) : activeTab === 'home' ? (
         <>
           <Header 
-            onPrayerTimesClick={() => setShowPrayerTimes(true)}
-            onDuasClick={() => setShowDuas(true)}
-            onNamesClick={() => setShowNamesOfAllah(true)}
-            onTasbihClick={() => setShowTasbih(true)}
+            currentUser={currentUser}
+            onProfileClick={() => setShowProfile(true)}
+            onLoginClick={() => setShowAuth(true)}
           />
           
           <div className="home-content">
@@ -347,10 +363,16 @@ function App() {
                 <p>Prayer Times</p>
               </button>
               
-              <button className="quick-access-card" onClick={() => setActiveTab('library')}>
-                <span className="card-icon">📿</span>
-                <h3>الأذكار والأدعية</h3>
-                <p>Adhkar & Duas</p>
+              <button className="quick-access-card" onClick={() => setShowDuas(true)}>
+                <span className="card-icon">📖</span>
+                <h3>الأدعية</h3>
+                <p>Duas</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowNamesOfAllah(true)}>
+                <span className="card-icon">⭐</span>
+                <h3>أسماء الله الحسنى</h3>
+                <p>99 Names of Allah</p>
               </button>
               
               <button className="quick-access-card" onClick={() => setShowTasbih(true)}>
@@ -358,100 +380,41 @@ function App() {
                 <h3>التسبيح</h3>
                 <p>Tasbih Counter</p>
               </button>
-            </div>
-
-            {/* Floating Action Buttons */}
-            <div className="fab-container">
-          {/* Hadith Search Button */}
-          <button 
-            className="hadith-search-fab"
-            onClick={() => setShowHadithSearch(true)}
-            title="Hadith Search - Dorar.net"
-          >
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.35-4.35"/>
-            </svg>
-          </button>
-
-          {/* Hadith Books Button */}
-          <button 
-            className="hadith-fab"
-            onClick={() => setShowHadith(true)}
-            title="Hadith Library"
-          >
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-          </button>
-
-          {/* Books Button */}
-          <button 
-            className="books-fab"
-            onClick={() => setShowBooks(true)}
-            title="Islamic Books Library"
-          >
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            </svg>
-          </button>
-
-          {/* Qibla Button */}
-          <button 
-            className="qibla-fab"
-            onClick={() => setShowQibla(true)}
-            title="Find Qibla Direction"
-          >
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <circle cx="12" cy="12" r="10"/>
-              <polygon points="12 2 15 8 12 14 9 8"/>
-            </svg>
-          </button>
+              
+              <button className="quick-access-card" onClick={() => setShowAdhkar(true)}>
+                <span className="card-icon">📿</span>
+                <h3>الأذكار</h3>
+                <p>Adhkar</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowZakatCalculator(true)}>
+                <span className="card-icon">💰</span>
+                <h3>حاسبة الزكاة</h3>
+                <p>Zakat & Sadaqah</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowHadithSearch(true)}>
+                <span className="card-icon">🔍</span>
+                <h3>بحث الأحاديث</h3>
+                <p>Hadith Search</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowHadith(true)}>
+                <span className="card-icon">📕</span>
+                <h3>كتب الحديث</h3>
+                <p>Hadith Books</p>
+              </button>
+              
+              <button className="quick-access-card" onClick={() => setShowQibla(true)}>
+                <span className="card-icon">🧭</span>
+                <h3>اتجاه القبلة</h3>
+                <p>Qibla Direction</p>
+              </button>
             </div>
           </div>
         </>
       ) : activeTab === 'prayer' ? (
         <PrayerTimes mode="page" />
-      ) : activeTab === 'library' ? (
-        <div className="library-tabs">
-          <div className="library-tab-switcher">
-            <button className="lib-tab active">أذكار</button>
-            <button className="lib-tab">دعاء</button>
-          </div>
-          <AdhkarPage />
-        </div>
-      ) : activeTab === 'duas' ? (
-        <DuaPage />
       ) : activeTab === 'calendar' ? (
         <IslamicCalendar mode="page" />
       ) : activeTab === 'more' ? (
@@ -459,7 +422,7 @@ function App() {
           onBack={() => setActiveTab('home')} 
           onOpenCalendar={() => setActiveTab('calendar')}
           onOpenPrayer={() => setActiveTab('prayer')}
-          onOpenAdhkar={() => setActiveTab('library')}
+          onOpenAdhkar={() => setShowAdhkar(true)}
         />
       ) : null}
 
@@ -476,6 +439,17 @@ function App() {
       {showNamesOfAllah && <NamesOfAllah onClose={() => setShowNamesOfAllah(false)} />}
       {showTasbih && <Tasbih onClose={() => setShowTasbih(false)} />}
       {showIslamicLibrary && <IslamicLibrary onClose={() => setShowIslamicLibrary(false)} />}
+      {showZakatCalculator && <ZakatCalculator onClose={() => setShowZakatCalculator(false)} />}
+      {showAdhkar && <AdhkarPage onClose={() => setShowAdhkar(false)} />}
+      {showAuth && <Auth onClose={() => setShowAuth(false)} onLogin={setCurrentUser} />}
+      {showProfile && currentUser && (
+        <Profile 
+          onClose={() => setShowProfile(false)} 
+          user={currentUser}
+          onLogout={() => setCurrentUser(null)}
+          onUserUpdate={setCurrentUser}
+        />
+      )}
     </div>
   );
 }

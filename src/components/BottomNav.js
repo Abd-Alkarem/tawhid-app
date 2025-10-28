@@ -7,7 +7,6 @@ const BottomNav = ({ activeTab, onTabChange }) => {
     { id: 'home', icon: Home, label: { ar: 'الرئيسية', en: 'Home' } },
     { id: 'quran', icon: BookOpen, label: { ar: 'القرآن', en: 'Quran' } },
     { id: 'prayer', icon: Compass, label: { ar: 'الصلاة', en: 'Prayer' } },
-    { id: 'library', icon: BookMarked, label: { ar: 'الأذكار', en: 'Adhkar' } },
     { id: 'more', icon: SettingsIcon, label: { ar: 'المزيد', en: 'More' } }
   ];
 
