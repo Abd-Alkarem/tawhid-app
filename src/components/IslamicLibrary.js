@@ -51,51 +51,134 @@ const SALAFI_BOOKS = [
     description: 'أربع قواعد تكشف شبهات المشركين'
   },
   
-  // Hadith
+  // Hadith - الكتب الستة (The Six Books)
   { 
     id: 1284, 
     title: 'صحيح البخاري', 
-    author: 'البخاري', 
+    author: 'الإمام البخاري', 
     category: 'الحديث', 
     priority: 1,
-    url: 'https://read.shamela.ws/book/1284',
-    description: 'أصح كتاب بعد كتاب الله تعالى'
+    url: 'https://sunnah.com/bukhari',
+    description: 'أصح كتاب بعد كتاب الله تعالى - الجامع المسند الصحيح المختصر من أمور رسول الله صلى الله عليه وسلم وسننه وأيامه'
   },
   { 
     id: 1285, 
     title: 'صحيح مسلم', 
-    author: 'مسلم', 
+    author: 'الإمام مسلم', 
     category: 'الحديث', 
     priority: 1,
-    url: 'https://read.shamela.ws/book/1285',
-    description: 'ثاني أصح كتب الحديث بعد صحيح البخاري'
+    url: 'https://sunnah.com/muslim',
+    description: 'المسند الصحيح المختصر بنقل العدل عن العدل إلى رسول الله صلى الله عليه وسلم - ثاني أصح كتب الحديث'
+  },
+  { 
+    id: 1286, 
+    title: 'سنن أبي داود', 
+    author: 'الإمام أبو داود', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/abudawud',
+    description: 'من أهم كتب السنن الأربعة، يحتوي على أحاديث الأحكام والفقه'
+  },
+  { 
+    id: 1287, 
+    title: 'جامع الترمذي', 
+    author: 'الإمام الترمذي', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/tirmidhi',
+    description: 'الجامع المختصر من السنن عن رسول الله صلى الله عليه وسلم ومعرفة الصحيح والمعلول وما عليه العمل'
+  },
+  { 
+    id: 1288, 
+    title: 'سنن النسائي', 
+    author: 'الإمام النسائي', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/nasai',
+    description: 'المجتبى من السنن - من أدق كتب السنن في الرجال والأسانيد'
+  },
+  { 
+    id: 1289, 
+    title: 'سنن ابن ماجه', 
+    author: 'الإمام ابن ماجه', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/ibnmajah',
+    description: 'سادس الكتب الستة، يحتوي على أحاديث الأحكام والآداب'
+  },
+  
+  // Hadith - Other Important Collections
+  { 
+    id: 1290, 
+    title: 'موطأ الإمام مالك', 
+    author: 'الإمام مالك', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/malik',
+    description: 'أول كتاب جامع في الحديث والفقه، من أصح الكتب بعد الصحيحين'
+  },
+  { 
+    id: 1291, 
+    title: 'مسند الإمام أحمد', 
+    author: 'الإمام أحمد بن حنبل', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/ahmad',
+    description: 'أكبر مسانيد الحديث، يحتوي على أكثر من 27,000 حديث'
   },
   { 
     id: 2348, 
     title: 'رياض الصالحين', 
-    author: 'النووي', 
+    author: 'الإمام النووي', 
     category: 'الحديث', 
     priority: 1,
-    url: 'https://read.shamela.ws/book/2348',
-    description: 'مختارات من الأحاديث الصحيحة في الأخلاق والآداب'
+    url: 'https://sunnah.com/riyadussalihin',
+    description: 'مختارات من الأحاديث الصحيحة في الأخلاق والآداب والرقائق'
   },
   { 
     id: 1296, 
     title: 'بلوغ المرام', 
-    author: 'ابن حجر', 
+    author: 'الحافظ ابن حجر', 
     category: 'الحديث', 
     priority: 1,
-    url: 'https://read.shamela.ws/book/1296',
-    description: 'أحاديث الأحكام من أمهات كتب الحديث'
+    url: 'https://sunnah.com/bulugh',
+    description: 'أحاديث الأحكام من أمهات كتب الحديث مع بيان درجتها'
   },
   { 
     id: 1359, 
     title: 'الأربعون النووية', 
-    author: 'النووي', 
+    author: 'الإمام النووي', 
     category: 'الحديث', 
     priority: 1,
-    url: 'https://read.shamela.ws/book/1359',
-    description: 'اثنان وأربعون حديثاً جامعة لأصول الإسلام'
+    url: 'https://sunnah.com/nawawi40',
+    description: 'اثنان وأربعون حديثاً جامعة لأصول الإسلام وقواعده'
+  },
+  { 
+    id: 1360, 
+    title: 'شمائل الترمذي', 
+    author: 'الإمام الترمذي', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/shamail',
+    description: 'كتاب في صفات النبي صلى الله عليه وسلم الخَلقية والخُلقية'
+  },
+  { 
+    id: 1361, 
+    title: 'الأدب المفرد', 
+    author: 'الإمام البخاري', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/adab',
+    description: 'كتاب في الآداب والأخلاق الإسلامية من تأليف الإمام البخاري'
+  },
+  { 
+    id: 1362, 
+    title: 'الأربعون القدسية', 
+    author: 'جمع العلماء', 
+    category: 'الحديث', 
+    priority: 1,
+    url: 'https://sunnah.com/qudsi40',
+    description: 'أربعون حديثاً قدسياً - كلام الله تعالى على لسان نبيه صلى الله عليه وسلم'
   },
   
   // Fiqh (Jurisprudence)

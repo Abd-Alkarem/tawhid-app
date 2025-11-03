@@ -1,0 +1,317 @@
+[
+  {
+    "name": "bukhari",
+    "hadiths": [
+      {
+        "id": 113752,
+        "collection": "bukhari",
+        "bookNumber": "24",
+        "babID": 52,
+        "hadithNumber": "1474, 1475",
+        "ourHadithNumber": 76,
+        "arabicBabName": "باب مَنْ سَأَلَ النَّاسَ تَكَثُّرًا ",
+        "arabicText": "حَدَّثَنَا يَحْيَى بْنُ بُكَيْرٍ، حَدَّثَنَا اللَّيْثُ، عَنْ عُبَيْدِ اللَّهِ بْنِ أَبِي جَعْفَرٍ، قَالَ سَمِعْتُ حَمْزَةَ بْنَ عَبْدِ اللَّهِ بْنِ عُمَرَ، قَالَ سَمِعْتُ عَبْدَ اللَّهِ بْنَ عُمَرَ ـ رضى الله عنه ـ قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\\\"‏ مَا يَزَالُ الرَّجُلُ يَسْأَلُ النَّاسَ حَتَّى يَأْتِيَ يَوْمَ الْقِيَامَةِ لَيْسَ فِي وَجْهِهِ مُزْعَةُ لَحْمٍ ‏\\\"‏‏.‏ وَقَالَ إِنَّ الشَّمْسَ تَدْنُو يَوْمَ الْقِيَامَةِ حَتَّى يَبْلُغَ الْعَرَقُ نِصْفَ الأُذُنِ، فَبَيْنَا هُمْ كَذَلِكَ اسْتَغَاثُوا بِآدَمَ، ثُمَّ بِمُوسَى، ثُمَّ بِمُحَمَّدٍ صلى الله عليه وسلم ‏\\\"‏‏.‏ وَزَادَ عَبْدُ اللَّهِ حَدَّثَنِي اللَّيْثُ حَدَّثَنِي ابْنُ أَبِي جَعْفَرٍ ‏\\\"‏ فَيَشْفَعُ لِيُقْضَى بَيْنَ الْخَلْقِ، فَيَمْشِي حَتَّى يَأْخُذَ بِحَلْقَةِ الْبَابِ، فَيَوْمَئِذٍ يَبْعَثُهُ اللَّهُ مَقَامًا مَحْمُودًا، يَحْمَدُهُ أَهْلُ الْجَمْعِ كُلُّهُمْ ‏\\\"‏‏.‏ وَقَالَ مُعَلًّى حَدَّثَنَا وُهَيْبٌ، عَنِ النُّعْمَانِ بْنِ رَاشِدٍ، عَنْ عَبْدِ اللَّهِ بْنِ مُسْلِمٍ، أَخِي الزُّهْرِيِّ عَنْ حَمْزَةَ، سَمِعَ ابْن",
+        "arabicGrade": "صحيح",
+        "englishBabName": "Whoever asks the people to increase his wealth",
+        "englishText": "<p>\nNarrated `Abdullah bin `Umar:\n\n<p>The Prophet said, \\\"A man keeps on asking others for something till he comes on the Day of \nResurrection without any piece of flesh on his face.\\\" The Prophet added, \\\"On the Day of Resurrection, \nthe Sun will come near (to, the people) to such an extent that the sweat will reach up to the middle of \nthe ears, so, when all the people are in that state, they will ask Adam for help, and then Moses, and \nthen Muhammad (p.b.u.h) .\\\" The sub-narrator added \\\"Muhammad will intercede with Allah to judge \namongst the people. He will proceed on till he will hold the ring of the door (of Paradise) and then \nAllah will exalt him to Maqam Mahmud (the privilege of intercession, etc.). And all the people of the \ngathering will send their praises to Allah.",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 133060,
+        "collection": "bukhari",
+        "bookNumber": "62",
+        "babID": 5,
+        "hadithNumber": "3675",
+        "ourHadithNumber": 25,
+        "arabicBabName": "باب قَوْلِ النَّبِيِّ صلى الله عليه وسلم ‏\\\"‏ لَوْ كُنْتُ مُتَّخِذًا خَلِيلاً ‏\\\"‏ قَالَهُ أَبُو سَعِيدٍ ",
+        "arabicText": "حَدَّثَنِي مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا يَحْيَى، عَنْ سَعِيدٍ، عَنْ قَتَادَةَ، أَنَّ أَنَسَ بْنَ مَالِكٍ ـ رضى الله عنه ـ حَدَّثَهُمْ أَنَّ النَّبِيَّ صلى الله عليه وسلم صَعِدَ أُحُدًا وَأَبُو بَكْرٍ وَعُمَرُ وَعُثْمَانُ فَرَجَفَ بِهِمْ فَقَالَ ‏\\\"‏ اثْبُتْ أُحُدُ فَإِنَّمَا عَلَيْكَ نَبِيٌّ وَصِدِّيقٌ وَشَهِيدَانِ ‏\\\"‏‏.‏ ",
+        "arabicGrade": "صحيح",
+        "englishBabName": "\\\"If I were to take Khalil ...\\\"",
+        "englishText": "<p>\nNarrated Anas bin Malik:\n\n<p>The Prophet once climbed the mountain of Uhud with Abu Bakr, `Umar and `Uthman. The mountain \nshook with them. The Prophet said (to the mountain), \\\"Be firm, O Uhud! For on you there are no more \nthan a Prophet, a Siddiq and two martyrs.",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 150060,
+        "collection": "bukhari",
+        "bookNumber": "77",
+        "babID": 11,
+        "hadithNumber": "5799",
+        "ourHadithNumber": 17,
+        "arabicBabName": "باب جُبَّةِ الصُّوفِ فِي الْغَزْوِ ",
+        "arabicText": "حَدَّثَنَا أَبُو نُعَيْمٍ، حَدَّثَنَا زَكَرِيَّاءُ، عَنْ عَامِرٍ، عَنْ عُرْوَةَ بْنِ الْمُغِيرَةِ، عَنْ أَبِيهِ ـ رضى الله عنه ـ قَالَ كُنْتُ مَعَ النَّبِيِّ صلى الله عليه وسلم ذَاتَ لَيْلَةٍ فِي سَفَرٍ فَقَالَ ‏\\\"‏ أَمَعَكَ مَاءٌ ‏\\\"‏‏.‏ قُلْتُ نَعَمْ‏.‏ فَنَزَلَ عَنْ رَاحِلَتِهِ، فَمَشَى حَتَّى تَوَارَى عَنِّي فِي سَوَادِ اللَّيْلِ، ثُمَّ جَاءَ فَأَفْرَغْتُ عَلَيْهِ الإِدَاوَةَ، فَغَسَلَ وَجْهَهُ وَيَدَيْهِ، وَعَلَيْهِ جُبَّةٌ مِنْ صُوفٍ، فَلَمْ يَسْتَطِعْ أَنْ يُخْرِجَ ذِرَاعَيْهِ مِنْهَا حَتَّى أَخْرَجَهُمَا مِنْ أَسْفَلِ الْجُبَّةِ، فَغَسَلَ ذِرَاعَيْهِ، ثُمَّ مَسَحَ بِرَأْسِهِ، ثُمَّ أَهْوَيْتُ لأَنْزِعَ خُفَّيْهِ فَقَالَ ‏\\\"‏ دَعْهُمَا، فَإِنِّي أَدْخَلْتُهُمَا طَاهِرَتَيْنِ، فَمَسَحَ عَلَيْهِمَا ‏\\\"‏‏.‏ ",
+        "arabicGrade": "صحيح",
+        "englishBabName": "To wear a woolen cloak during the Ghazawat",
+        "englishText": "<p>\nNarrated Al-Mughira:\n\n<p>One night I was with the Prophet on a journey. He asked (me), \\\"Have you got water with you?\\\" I \nreplied, \\\"Yes\\\" So he got down from his she-camel and went away till he disappeared in the darkness \nof the night. Then he came back and I poured water for him from the pot (for the ablution). He washed \nhis face and hands while he was wearing a woollen cloak (the sleeves of which were narrow), so he \ncould not take his arms out of it. So he took them out from underneath the cloak. Then he washed his \nforearms and passed his wet hands over his head. Then I tried to take off his Khuffs (socks made from \nthick fabric or leather), but he said, \\\"Leave them, for I have performed ablution before putting them \non.\\\" And so he passed his wet hands over them.",
+        "englishGrade": "Sahih"
+      }
+    ]
+  },
+  {
+    "name": "tirmidhi",
+    "hadiths": [
+      {
+        "id": 701960,
+        "collection": "tirmidhi",
+        "bookNumber": "2",
+        "babID": 29,
+        "hadithNumber": "196",
+        "ourHadithNumber": 48,
+        "arabicBabName": " باب مَا جَاءَ فِي التَّرَسُّلِ فِي الأَذَانِ  ",
+        "arabicText": " حَدَّثَنَا عَبْدُ بْنُ حُمَيْدٍ، حَدَّثَنَا يُونُسُ بْنُ مُحَمَّدٍ، عَنْ عَبْدِ الْمُنْعِمِ، نَحْوَهُ ‏.‏ قَالَ أَبُو عِيسَى حَدِيثُ جَابِرٍ هَذَا حَدِيثٌ لاَ نَعْرِفُهُ إِلاَّ مِنْ هَذَا الْوَجْهِ مِنْ حَدِيثِ عَبْدِ الْمُنْعِمِ وَهُوَ إِسْنَادٌ مَجْهُولٌ وَعَبْدُ الْمُنْعِمِ شَيْخٌ بَصْرِيٌّ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "What Has Been Related About Saying The Phrases Of The Adhan With Deliberateness And Slowly",
+        "englishText": "Jabir [bin Abdullah] narrated:\n(Another chain for) a similar narration (as no. 195).",
+        "englishGrade": "Da\\"
+      },
+      {
+        "id": 706970,
+        "collection": "tirmidhi",
+        "bookNumber": "8",
+        "babID": 10,
+        "hadithNumber": "694",
+        "ourHadithNumber": 13,
+        "arabicBabName": " باب مَا جَاءَ مَا يُسْتَحَبُّ عَلَيْهِ الإِفْطَارُ  ",
+        "arabicText": " حَدَّثَنَا مُحَمَّدُ بْنُ عُمَرَ بْنِ عَلِيٍّ الْمُقَدَّمِيُّ، حَدَّثَنَا سَعِيدُ بْنُ عَامِرٍ، حَدَّثَنَا شُعْبَةُ، عَنْ عَبْدِ الْعَزِيزِ بْنِ صُهَيْبٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\\\"‏ مَنْ وَجَدَ تَمْرًا فَلْيُفْطِرْ عَلَيْهِ وَمَنْ لاَ فَلْيُفْطِرْ عَلَى مَاءٍ فَإِنَّ الْمَاءَ طَهُورٌ ‏\\\"‏ ‏.‏ قَالَ وَفِي الْبَابِ عَنْ سَلْمَانَ بْنِ عَامِرٍ ‏.‏ قَالَ أَبُو عِيسَى حَدِيثُ أَنَسٍ لاَ نَعْلَمُ أَحَدًا رَوَاهُ عَنْ شُعْبَةَ مِثْلَ هَذَا غَيْرَ سَعِيدِ بْنِ عَامِرٍ وَهُوَ حَدِيثٌ غَيْرُ مَحْفُوظٍ وَلاَ نَعْلَمُ لَهُ أَصْلاً مِنْ حَدِيثِ عَبْدِ الْعَزِيزِ بْنِ صُهَيْبٍ عَنْ أَنَسٍ ‏.‏ وَقَدْ رَوَى أَصْحَابُ شُعْبَةَ هَذَا الْحَدِيثَ عَنْ شُعْبَةَ عَنْ عَاصِمٍ الأَحْوَلِ عَنْ حَفْصَةَ بِنْتِ سِيرِينَ عَنِ الرَّبَابِ عَنْ سَلْمَانَ بْنِ عَامِرٍ عَنِ النَّبِيِّ صلى الله عليه وسلم وَهُوَ أَصَحُّ مِنْ حَدِيثِ سَعِيدِ بْنِ عَامِرٍ ‏.‏ وَهَكَذَا رَوَوْا عَنْ شُعْبَةَ عَنْ عَاصِمٍ عَنْ حَفْصَةَ بِنْتِ سِيرِينَ عَنْ سَلْمَانَ وَلَمْ يَذْكُرْ فِيهِ ش",
+        "arabicGrade": "",
+        "englishBabName": "What Has Been Related About What It Is Recommended To Break The Fast With",
+        "englishText": "Anas bin Malik narrated that :\nthe Messenger of Allah said: \\\"Whoever has dried dates, then let him break the fast with that, and whoever does not, then let him break the fast with water, for indeed water is purifying.\\\"",
+        "englishGrade": "Sahih"
+      }
+    ]
+  },
+  {
+    "name": "abudawud",
+    "hadiths": [
+      {
+        "id": 902220,
+        "collection": "abudawud",
+        "bookNumber": "1",
+        "babID": 89,
+        "hadithNumber": "222",
+        "ourHadithNumber": 222,
+        "arabicBabName": " باب الْجُنُبِ يَأْكُلُ ",
+        "arabicText": " حَدَّثَنَا مُسَدَّدٌ، وَقُتَيْبَةُ بْنُ سَعِيدٍ، قَالاَ حَدَّثَنَا سُفْيَانُ، عَنِ الزُّهْرِيِّ، عَنْ أَبِي سَلَمَةَ، عَنْ عَائِشَةَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا أَرَادَ أَنْ يَنَامَ وَهُوَ جُنُبٌ تَوَضَّأَ وُضُوءَهُ لِلصَّلاَةِ ‏.‏   \n",
+        "arabicGrade": "صحيح",
+        "englishBabName": "The Sexually Impure Person Eating",
+        "englishText": "‘A’ishah reported: when the prophet (may peace be upon him) intended to sleep while he was sexually defiled, he would perform ablution as he did for prayer.",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 908170,
+        "collection": "abudawud",
+        "bookNumber": "2",
+        "babID": 137,
+        "hadithNumber": "817",
+        "ourHadithNumber": 427,
+        "arabicBabName": " باب الْقِرَاءَةِ فِي الْفَجْرِ ",
+        "arabicText": " حَدَّثَنَا إِبْرَاهِيمُ بْنُ مُوسَى الرَّازِيُّ، أَخْبَرَنَا عِيسَى، - يَعْنِي ابْنَ يُونُسَ - عَنْ إِسْمَاعِيلَ، عَنْ أَصْبَغَ، مَوْلَى عَمْرِو بْنِ حُرَيْثٍ عَنْ عَمْرِو بْنِ حُرَيْثٍ، قَالَ كَأَنِّي أَسْمَعُ صَوْتَ النَّبِيِّ صلى الله عليه وسلم يَقْرَأُ فِي صَلاَةِ الْغَدَاةِ ‏<A id=\\\"q14\\\" name=\\\"q14\\\" href=\\\"javascript:openquran(80,15,16)\\\"><c_q14>{‏ فَلاَ أُقْسِمُ بِالْخُنَّسِ * الْجَوَارِ الْكُنَّسِ ‏}</c_q14></a>‏ ‏.‏ \n",
+        "arabicGrade": "صحيح",
+        "englishBabName": "The Recitation Of Al-Fajr",
+        "englishText": "‘Amr b. Huraith said: As if I am hearing the voice of the prophet (may peace by upon him) who would recite at the morning prayer “Oh, but I call to witness the planets, the stars which rise and set”(surah 81:15-16)",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 920640,
+        "collection": "abudawud",
+        "bookNumber": "12",
+        "babID": 10,
+        "hadithNumber": "2061",
+        "ourHadithNumber": 16,
+        "arabicBabName": " باب فِيمَنْ حَرَّمَ بِهِ ",
+        "arabicText": " حَدَّثَنَا أَحْمَدُ بْنُ صَالِحٍ، حَدَّثَنَا عَنْبَسَةُ، حَدَّثَنِي يُونُسُ، عَنِ ابْنِ شِهَابٍ، حَدَّثَنِي عُرْوَةُ بْنُ الزُّبَيْرِ، عَنْ عَائِشَةَ، زَوْجِ النَّبِيِّ صلى الله عليه وسلم وَأُمِّ سَلَمَةَ أَنَّ أَبَا حُذَيْفَةَ بْنَ عُتْبَةَ بْنِ رَبِيعَةَ بْنِ عَبْدِ شَمْسٍ كَانَ تَبَنَّى سَالِمًا وَأَنْكَحَهُ ابْنَةَ أَخِيهِ هِنْدَ بِنْتَ الْوَلِيدِ بْنِ عُتْبَةَ بْنِ رَبِيعَةَ وَهُوَ مَوْلًى لاِمْرَأَةٍ مِنَ الأَنْصَارِ كَمَا تَبَنَّى رَسُولُ اللَّهِ صلى الله عليه وسلم زَيْدًا وَكَانَ مَنْ تَبَنَّى رَجُلاً فِي الْجَاهِلِيَّةِ دَعَاهُ النَّاسُ إِلَيْهِ وَوُرِّثَ مِيرَاثَهُ حَتَّى أَنْزَلَ اللَّهُ سُبْحَانَهُ وَتَعَالَى فِي ذَلِكَ <A id=\\\"q3\\\" name=\\\"q3\\\" href=\\\"javascript:openquran(32,5,5)\\\"><c_q3>‏{‏ ادْعُوهُمْ لآبَائِهِمْ ‏}‏</c_q3></a> إِلَى قَوْلِهِ ‏<A id=\\\"q4\\\" name=\\\"q4\\\" href=\\\"javascript:openquran(32,5,5)\\\"><c_q4>{‏ فَإِخْوَانُكُمْ فِي الدِّينِ وَمَوَالِيكُمْ ‏}</c_q4></a>‏ فَرُدُّوا إِلَى آبَائِهِمْ فَمَنْ لَمْ يُعْلَمْ لَهُ أَبٌ كَانَ مَوْلًى وَأَخًا فِي الدِّينِ فَجَاءَت",
+        "arabicGrade": "صحيح",
+        "englishBabName": "(About) Who Was Made Prohibited Through Adult Fosterage",
+        "englishText": "A’ishah wife of the Prophet(saws) and Umm Salamah said “Abu Hudaifah bin ‘Utbah bin Rabi’ah bin ‘Abd Shams adopted Salim as his son and married him to his niece Hind, daughter of Al Walid bin  ‘Utbah bin Rabi’ah. He (Salim) was the freed slave of a woman from the Ansar (the Helpers) as the Apostle of Allaah(saws) adopted Zaid as his son. In pre Islamic days when anyone adopted a man as his son, the people called him by his name and he was given a share from his inheritance. Allaah, the Exalted, revealed about this matter “Call them by (the name of) their fathers, that is juster in the sight of Allaah. And if ye know not their fathers, then (they are) your brethren in the faith and your clients. They were then called by their names of their fathers. A man, whose father was not known, remained under the protection of someone and considered brother in faith. Sahlah daughter of Suhail bin Amr Al Quraishi then came and said Apostle of Allaah(saws), we used to consider Salim(our) son. He dwe",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 952480,
+        "collection": "abudawud",
+        "bookNumber": "43",
+        "babID": 173,
+        "hadithNumber": "5245",
+        "ourHadithNumber": 473,
+        "arabicBabName": " باب فِي إِمَاطَةِ الأَذَى عَنِ الطَّرِيقِ ",
+        "arabicText": " حَدَّثَنَا عِيسَى بْنُ حَمَّادٍ، أَخْبَرَنَا اللَّيْثُ، عَنْ مُحَمَّدِ بْنِ عَجْلاَنَ، عَنْ زَيْدِ بْنِ أَسْلَمَ، عَنْ أَبِي صَالِحٍ، عَنْ أَبِي هُرَيْرَةَ، عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم أَنَّهُ قَالَ ‏\\\"‏ نَزَعَ رَجُلٌ لَمْ يَعْمَلْ خَيْرًا قَطُّ غُصْنَ شَوْكٍ عَنِ الطَّرِيقِ إِمَّا كَانَ فِي شَجَرَةٍ فَقَطَعَهُ وَأَلْقَاهُ وَإِمَّا كَانَ مَوْضُوعًا فَأَمَاطَهُ فَشَكَرَ اللَّهُ لَهُ بِهَا فَأَدْخَلَهُ الْجَنَّةَ ‏\\\"‏ ‏.‏ \n",
+        "arabicGrade": "حسن صحيح",
+        "englishBabName": "Removing harmful things from the road",
+        "englishText": "<p>\n\nNarrated AbuHurayrah:\n</p>\n\n\n\n<p>\n\nThe Prophet (saws) said: A man never did a good deed but removed a thorny branch from the road; it was either in the tree and someone cut it and threw it on the road, or it was lying in it, he removed it. Allah accepted this good deed of his and brought him into Paradise.\n</p>\n\n\n",
+        "englishGrade": "Hasan Sahih"
+      }
+    ]
+  },
+  {
+    "name": "nasai",
+    "hadiths": [
+      {
+        "id": 1145220,
+        "collection": "nasai",
+        "bookNumber": "44",
+        "babID": 21,
+        "hadithNumber": "4507",
+        "ourHadithNumber": 59,
+        "arabicBabName": " باب النَّجْشِ ‏‏ ",
+        "arabicText": " حَدَّثَنِي مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى، قَالَ حَدَّثَنَا يَزِيدُ، قَالَ حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ سَعِيدِ بْنِ الْمُسَيَّبِ، عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\\\"‏ لاَ يَبِيعُ حَاضِرٌ لِبَادٍ وَلاَ تَنَاجَشُوا وَلاَ يَزِيدُ الرَّجُلُ عَلَى بَيْعِ أَخِيهِ وَلاَ تَسْأَلُ الْمَرْأَةُ طَلاَقَ أُخْتِهَا لِتَسْتَكْفِئَ بِهِ مَا فِي صَحْفَتِهَا ‏\\\"‏ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "Artificially Inflating Prices",
+        "englishText": "It was narrated from Abu Hurairah that the Prophet said:\n\\\"No tow-dweller should sell for desert-dweller, no man should outbid his brother; and no woman should ask for her sister (in faith) to be divorced so as to turn over what is in her bowl (deprive her of her share of maintenance)\\\"",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 1152470,
+        "collection": "nasai",
+        "bookNumber": "48",
+        "babID": 74,
+        "hadithNumber": "5262",
+        "ourHadithNumber": 223,
+        "arabicBabName": " باب الطِّيبِ ‏‏ ",
+        "arabicText": " وَحَدَّثَنَا قُتَيْبَةُ، قَالَ حَدَّثَنَا اللَّيْثُ، عَنِ ابْنِ أَبِي جَعْفَرٍ، عَنْ بُكَيْرِ بْنِ عَبْدِ اللَّهِ بْنِ الأَشَجِّ، عَنْ بُسْرِ بْنِ سَعِيدٍ، عَنْ زَيْنَبَ الثَّقَفِيَّةِ، أَنَّ النَّبِيَّ صلى الله عليه وسلم قَالَ ‏\\\"‏ أَيَّتُكُنَّ خَرَجَتْ إِلَى الْمَسْجِدِ فَلاَ تَقْرَبَنَّ طِيبًا ‏\\\"‏ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "Perfume",
+        "englishText": "It was narrated from Zainab Ath-Thaqafiyyah that:\nThe Prophet [SAW] said: \\\"Any one of you (women) who wants to go out to the Masjid should not go near any perfume.\\\"",
+        "englishGrade": "Sahih"
+      }
+    ]
+  },
+  {
+    "name": "ibnmajah",
+    "hadiths": [
+      {
+        "id": 1309910,
+        "collection": "ibnmajah",
+        "bookNumber": "5",
+        "babID": 35,
+        "hadithNumber": "939",
+        "ourHadithNumber": 137,
+        "arabicBabName": " باب الْجَمَاعَةِ فِي اللَّيْلَةِ الْمَطِيرَةِ ‏",
+        "arabicText": " حَدَّثَنَا أَحْمَدُ بْنُ عَبْدَةَ، حَدَّثَنَا عَبَّادُ بْنُ عَبَّادٍ الْمُهَلَّبِيُّ، حَدَّثَنَا عَاصِمٌ الأَحْوَلُ، عَنْ عَبْدِ اللَّهِ بْنِ الْحَارِثِ بْنِ نَوْفَلٍ، أَنَّ ابْنَ عَبَّاسٍ، أَمَرَ الْمُؤَذِّنَ أَنْ يُؤَذِّنَ، يَوْمَ الْجُمُعَةِ وَذَلِكَ يَوْمٌ مَطِيرٌ فَقَالَ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ ‏.‏ ثُمَّ قَالَ نَادِ فِي النَّاسِ فَلْيُصَلُّوا فِي بُيُوتِهِمْ ‏.‏ فَقَالَ لَهُ النَّاسُ مَا هَذَا الَّذِي صَنَعْتَ قَالَ قَدْ فَعَلَ هَذَا مَنْ هُوَ خَيْرٌ مِنِّي تَأْمُرُنِي أَنْ أُخْرِجَ النَّاسَ مِنْ بُيُوتِهِمْ فَيَأْتُونِي يَدُوسُونَ الطِّينَ إِلَى رُكَبِهِمْ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "Prayer in congregation on a rainy night",
+        "englishText": " It was\nnarrated from ‘Abdullah bin Harith bin Nawfal that Ibn ‘Abbas\ncommanded the Mu’adh-dhin to call the Adhan one Friday, which was a\nrainy day. He said: “Allahu Akbar, Allahu Akbar, Ashhadu an la\nilaha\nillallah, Ashhadu anna Muhammadan Rasulullah (Allah is the Most\nGreat,\nAllah is Most Great, I bear witness that none has the right to\nbe\nworshipped but Allah, I bear witness that Muhammad is the\nMessenger of\nAllah).” Then he (Ibn ‘Abbas) said: “Proclaim to\nthe people that they\nshould pray in their houses.” The people said\nto him: “What is this\nthat you have done?” He said: “One who is\nbetter than me did that. Are\nyou telling me that I should bring the\npeople out of their houses and\nmake them come to me wading through\nthe mud up to their knees?”",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 1317060,
+        "collection": "ibnmajah",
+        "bookNumber": "6",
+        "babID": 65,
+        "hadithNumber": "1636",
+        "ourHadithNumber": 204,
+        "arabicBabName": " باب ذِكْرِ وَفَاتِهِ وَدَفْنِهِ ـ صلى الله عليه وسلم ـ ",
+        "arabicText": " حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا الْحُسَيْنُ بْنُ عَلِيٍّ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ يَزِيدَ بْنِ جَابِرٍ، عَنْ أَبِي الأَشْعَثِ الصَّنْعَانِيِّ، عَنْ أَوْسِ بْنِ أَوْسٍ، قَالَ قَالَ رَسُولُ اللَّهِ ـ صلى الله عليه وسلم ـ ‏\\\"‏ إِنَّ مِنْ أَفْضَلِ أَيَّامِكُمْ يَوْمَ الْجُمُعَةِ فِيهِ خُلِقَ آدَمُ وَفِيهِ النَّفْخَةُ وَفِيهِ الصَّعْقَةُ فَأَكْثِرُوا عَلَىَّ مِنَ الصَّلاَةِ فِيهِ فَإِنَّ صَلاَتَكُمْ مَعْرُوضَةٌ عَلَىَّ ‏.‏ فَقَالَ رَجُلٌ يَا رَسُولَ اللَّهِ كَيْفَ تُعْرَضُ صَلاَتُنَا عَلَيْكَ وَقَدْ أَرَمْتَ - يَعْنِي بَلِيتَ - قَالَ ‏\\\"‏ إِنَّ اللَّهَ حَرَّمَ عَلَى الأَرْضِ أَنْ تَأْكُلَ أَجْسَادَ الأَنْبِيَاءِ ‏\\\"‏ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "What was narrated concerning the death and burial of the Prophet (SAW)",
+        "englishText": " It was\nnarrated from Aws bin Aws that the Messenger of Allah (SAW)\nsaid:\n‘The best of your days is Friday. On it Adam was created; on it\nshall be the Nafakhah,* on it all creation will swoon. So send a\ngreat\ndeal of blessing upon me on this day, for your blessing will be\npresented to me.’ A man said: “O Messenger of Allah! How will our\nblessing be presented to you when you have disintegrated?” He said:\n“Allah has forbidden the earth to consume the bodies of the\nProphets.”",
+        "englishGrade": "Da’if"
+      },
+      {
+        "id": 1332050,
+        "collection": "ibnmajah",
+        "bookNumber": "25",
+        "babID": 90,
+        "hadithNumber": "3085",
+        "ourHadithNumber": 204,
+        "arabicBabName": " باب جَزَاءِ الصَّيْدِ يُصِيبُهُ الْمُحْرِمُ ",
+        "arabicText": " حَدَّثَنَا عَلِيُّ بْنُ مُحَمَّدٍ، حَدَّثَنَا وَكِيعٌ، حَدَّثَنَا جَرِيرُ بْنُ حَازِمٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُبَيْدِ بْنِ عُمَيْرٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ أَبِي عَمَّارٍ، عَنْ جَابِرٍ، قَالَ جَعَلَ رَسُولُ اللَّهِ ـ صلى الله عليه وسلم ـ فِي الضَّبُعِ يُصِيبُهُ الْمُحْرِمُ كَبْشًا وَجَعَلَهُ مِنَ الصَّيْدِ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "The penalty for hunting in Ihram",
+        "englishText": " It was\nnarrated that Jabir said: “The Messenger of Allah (saw)\nstipulated\n(the penalty of) a man for a hyena killed by a man in\nIhram, and he\nconsidered it as game.”",
+        "englishGrade": "Sahih"
+      },
+      {
+        "id": 1340290,
+        "collection": "ibnmajah",
+        "bookNumber": "35",
+        "babID": 1,
+        "hadithNumber": "3897",
+        "ourHadithNumber": 5,
+        "arabicBabName": " باب الرُّؤْيَا الصَّالِحَةِ يَرَاهَا الْمُسْلِمُ أَوْ تُرَى لَهُ ",
+        "arabicText": " حَدَّثَنَا عَلِيُّ بْنُ مُحَمَّدٍ، حَدَّثَنَا أَبُو أُسَامَةَ، وَعَبْدُ اللَّهِ بْنُ نُمَيْرٍ، عَنْ عُبَيْدِ اللَّهِ بْنِ عُمَرَ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، قَالَ قَالَ رَسُولُ اللَّهِ ـ صلى الله عليه وسلم ـ ‏\\\"‏ الرُّؤْيَا الصَّالِحَةُ جُزْءٌ مِنْ سَبْعِينَ جُزْءًا مِنَ النُّبُوَّةِ ‏\\\"‏ ‏.‏ \n",
+        "arabicGrade": "",
+        "englishBabName": "A Good Dream That Is Seen By The Muslim, Or Is Seen About Him",
+        "englishText": " It was\nnarrated that Ibn ‘Umar said: “The Messenger of Allah (saw)\nsaid:\n‘A righteous dream is one of the seventy parts of prophecy.’”",
+        "englishGrade": "Sahih"
+      }
+    ]
+  },
+  {
+    "name": "riyadussalihin",
+    "hadiths": [
+      {
+        "id": 1713010,
+        "collection": "riyadussalihin",
+        "bookNumber": "11",
+        "babID": 234,
+        "hadithNumber": "1311",
+        "ourHadithNumber": 27,
+        "arabicBabName": "- باب وجوب الجهاد وفضل الغدوة والروحة",
+        "arabicText": "- وعن أنس رضي الله عنه أن النبي صلى الله عليه وسلم قال‏:‏ ‏\\\"‏ما أحد يدخل الجنة يحب أن يرجع إلى الدنيا وله ما على الأرض من شيء إلا الشهيد، يتمنى أن يرجع إلى الدنيا فيقتل عشر مرات لما يرى من الكرامة” ",
+        "arabicGrade": "",
+        "englishBabName": "Obligation of Jihad",
+        "englishText": " Anas (May Allah be pleased with him) reported: The Prophet (PBUH) said, \\\"No one who has entered Jannah will desire to return to this world even if he should be given all that the world contains, except a martyr. For he will yearn that he should return to the world and be killed ten times on account of the dignity that he will experience by virtue of his martyrdom.\\\"<br><br>Another narration is: \\\"On account of the excellence and distinction, he will experience as a result of martyrdom.\\\"<br><br><b>[Al-Bukhari and Muslim]</b>.<br><br>",
+        "englishGrade": ""
+      }
+    ]
+  },
+  {
+    "name": "mishkat",
+    "hadiths": [
+      {
+        "id": 5610010,
+        "collection": "mishkat",
+        "bookNumber": "4",
+        "babID": 19.2,
+        "hadithNumber": "1001",
+        "ourHadithNumber": 421,
+        "arabicBabName": "بَابُ مَا لَا يَجُوزُ مِنَ الْعَمَلِ فِي الصَّلَاةِ وَمَا يُبَاحُ مِنْهُ - الفصل الثاني",
+        "arabicText": "وَعَنْ أَبِي ذَرٍّ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «إِذَا قَامَ أَحَدُكُمْ إِلَى الصَّلَاةِ فَلَا يَمْسَحِ الْحَصَى فَإِنَّ الرَّحْمَةَ تُوَاجِهُهُ» . رَوَاهُ أَحَمَدُ وَالتِّرْمِذِيُّ وَأَبُو دَاوُدَ وَالنَّسَائِيُّ وَابْنُ مَاجَه",
+        "arabicGrade": "[{\\\"graded_by\\\": \\\"\\\\u0627\\\\u0644\\\\u0623\\\\u0644\\\\u0628\\\\u0627\\\\u0646\\\\u064a\\\", \\\"grade\\\": \\\"\\\\u0636\\\\u064e\\\\u0639\\\\u0650\\\\u064a\\\\u0641\\\", \\\"priority\\\": 50}]",
+        "englishBabName": "What may not be done during Prayer and what is permitted - Section 2",
+        "englishText": "Abu Dharr reported God’s Messenger as saying, “When one of you gets up to pray he must not remove pebbles, for mercy is facing him.”*\n\n* Meaning that such an action is unfitting when one is in God’s presence.\n\nAhmad, Tirmidhi, Abu Dawud, Nasa’i and Ibn Majah transmitted it.",
+        "englishGrade": ""
+      },
+      {
+        "id": 5624270,
+        "collection": "mishkat",
+        "bookNumber": "9",
+        "babID": 7.1,
+        "hadithNumber": "2427",
+        "ourHadithNumber": 197,
+        "arabicBabName": "باب الدعوات في الأوقاف - الفصل الأول",
+        "arabicText": "وَعَن عبد الله بن يسر قَالَ: نَزَلَ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ عَلَى أَبِي فَقَرَّبْنَا إِلَيْهِ طَعَامًا وَوَطْبَةً فَأَكَلَ مِنْهَا ثُمَّ أُتِيَ بِتَمْرٍ فَكَانَ يَأْكُلُهُ وَيُلْقِي النَّوَى بَيْنَ أُصْبُعَيْهِ وَيَجْمَعُ السَّبَّابَةَ وَالْوُسْطَى وَفِي رِوَايَةٍ: فَجَعَلَ يُلْقِي النَّوَى عَلَى ظَهْرِ أُصْبُعَيْهِ السَّبَّابَةِ وَالْوُسْطَى ثُمَّ أُتِيَ بِشَرَابٍ فَشَرِبَهُ فَقَالَ أَبِي وَأَخَذَ بِلِجَامِ دَابَّتِهِ: ادْعُ اللَّهَ لَنَا فَقَالَ: «اللَّهُمَّ بَارِكْ لَهُمْ فِيمَا رَزَقْتَهُمْ واغفرْ لَهُم وارحمهم» . رَوَاهُ مُسلم",
+        "arabicGrade": "[{\\\"graded_by\\\": \\\"\\\\u0627\\\\u0644\\\\u0623\\\\u0644\\\\u0628\\\\u0627\\\\u0646\\\\u064a\\\", \\\"grade\\\": \\\"\\\\u0635\\\\u064e\\\\u062d\\\\u0650\\\\u064a\\\\u062d\\\", \\\"priority\\\": 50}]",
+        "englishBabName": "Supplications to be made at Various Times - Section 1",
+        "englishText": "‘Abdallah b. Busr said that God’s messenger visited his father and they presented him with some food and a mixture of dates, dried curd and clarified butter,* some of which he ate. Then some dates were brought to him and he ate them, throwing away the stones between two fingers, joining the forefinger and the middle finger. A version says that he began to throw away the stones on the outside of his forefinger and middle finger. He was then brought something to drink, and when he had drunk it [‘Abdallah’s] father took hold of the bridle of his beast and said, “Supplicate God for us.” So he said, “O God, bless them in that with which Thou hast provided them, forgive them and show them mercy.” \n*The Arabic word for this dish is <i>watba</i>. The word <i>hais</i> is used for very much the same dish. See p. 439, n.1.\n\nMuslim transmitted it.",
+        "englishGrade": ""
+      },
+      {
+        "id": 5631970,
+        "collection": "mishkat",
+        "bookNumber": "13",
+        "babID": 6.3,
+        "hadithNumber": "3197",
+        "ourHadithNumber": 115,
+        "arabicBabName": "باب المباشرة - الفصل الثالث",
+        "arabicText": "عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: نَهَى رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ أَن يعْزل عَن الْحرَّة إِلَّا بِإِذْنِهَا. رَوَاهُ ابْن مَاجَه",
+        "arabicGrade": "[{\\\"graded_by\\\": \\\"\\\\u0627\\\\u0644\\\\u0623\\\\u0644\\\\u0628\\\\u0627\\\\u0646\\\\u064a\\\", \\\"grade\\\": \\\"\\\\u0644\\\\u0645 \\\\u062a\\\\u062a\\\\u0645\\\\u0651 \\\\u062f\\\\u0631\\\\u0627\\\\u0633\\\\u062a\\\\u0647\\\", \\\"priority\\\": 50}]",
+        "englishBabName": "Sexual Intercourse - Section 3",
+        "englishText": "‘Umar b. al-Khattab said God’s Messenger forbade withdrawing the penis from a free woman unless she gives permission. \n\nIbn Majah transmitted it.",
+        "englishGrade": ""
+      },
+      {
+        "id": 5639580,
+        "collection": "mishkat",
+        "bookNumber": "19",
+        "babID": 5.2,
+        "hadithNumber": "3958",
+        "ourHadithNumber": 170,
+        "arabicBabName": "باب القتال في الجهاد - الفصل الثاني",
+        "arabicText": "وَعَن ابنِ عُمر قَالَ: بَعَثَنَا رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فِي سَرِيَّةٍ فَحَاصَ النَّاسُ حَيْصَةً فَأَتَيْنَا الْمَدِينَةَ فَاخْتَفَيْنَا بِهَا وَقُلْنَا: هَلَكْنَا ثُمَّ أَتَيْنَا رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقُلْنَا: يَا رَسُول الله نَحن الفارون. قَالَ: «بَلْ أَنْتُمُ الْعَكَّارُونَ وَأَنَا فِئَتُكُمْ» . رَوَاهُ التِّرْمِذِيُّ. وَفِي رِوَايَةِ أَبِي دَاوُدَ نَحْوَهُ وَقَالَ: «لَا بَلْ أَنْتُمُ الْعَكَّارُونَ» قَالَ: فَدَنَوْنَا فَقَبَّلْنَا يَده فَقَالَ: «أَنا فِئَة من الْمُسْلِمِينَ»",
+        "arabicGrade": "",
+        "englishBabName": "Fighting in Jihad - Section 2",
+        "englishText": "Ibn ‘Umar said: God’s Messenger sent us with a detachment and the people wheeled round in flight, so when we came to Medina we hid in it thinking that we had become corrupted.1 Then we went to God’s Messenger and told him we were those who had fled, but he replied, “No, you are the ones who return to fight after wheeling away, and I am your main body.”2 \n\n1. Literally “had perished.” They thought that they had committed a serious sin by turning in flight.\n2. The word <i>fi’a</i> is here used. The suggestion is that to withdraw to join one’s unit stationed in the rear is not flying from the enemy. Cf. Al-Qur’an; 8:16.\n\nTirmidhi transmitted it. Abu Dawud’s version has something similar. He said, “No, you are the ones who return to fight after wheeling away.” We then approached and kissed his hand, and he said, “I am the main body of the Muslims.”",
+        "englishGrade": ""
+      }
+    ]
+  }
+]

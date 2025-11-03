@@ -35,6 +35,11 @@ npm install
 npm start
 ```
 
+npm run build
+git add .
+git commit -m "Fix Hadith API to use direct endpoint"
+git push
+
 3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## How to Use

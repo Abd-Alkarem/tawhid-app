@@ -40,6 +40,16 @@ Terminal 2 - Proxy Server:
 npm run server
 ```
 
+git add .
+git commit -m "Fix warnings and add Tasbih counter feature"
+git push
+
+npm install @capacitor/core @capacitor/cli @capacitor/android
+npx cap init
+npm run build
+npx cap add android
+npx cap open android
+
 ## How It Works
 
 1. **User clicks a book** → React app sends request to proxy server
@@ -52,7 +62,7 @@ npm run server
 ✅ **500+ Books** from Shamela database
 ✅ **Real Content** fetched and displayed
 ✅ **No CORS Issues** - Proxy server handles it
-✅ **Pagination** - Content split into readable pages
+✅ **Pagination** - Content split into readable pagesnpm start
 ✅ **Search & Filter** - Find books by category
 ✅ **Offline Fallback** - Shows info if content unavailable
 

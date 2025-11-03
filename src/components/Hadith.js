@@ -9,19 +9,25 @@ function Hadith({ onClose }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const API_KEY = '$2y$10$vabsTau4KVlqw6cXEe3TEutrDG3mNFzIN227g2fuzUWo8r6hFsOq';
+  const LOCAL_API_URL = 'http://localhost:5001/api';
 
-  // Available hadith books with collection IDs for sunnah.com API
+  // Available hadith books - Only collections from local SQL database
   const books = [
-    { slug: 'sahih-bukhari', name: 'صحيح البخاري', nameEn: 'Sahih Bukhari', author: 'الإمام البخاري', collectionName: 'bukhari' },
-    { slug: 'sahih-muslim', name: 'صحيح مسلم', nameEn: 'Sahih Muslim', author: 'الإمام مسلم', collectionName: 'muslim' },
-    { slug: 'al-tirmidhi', name: 'جامع الترمذي', nameEn: "Jami' Al-Tirmidhi", author: 'الإمام الترمذي', collectionName: 'tirmidhi' },
-    { slug: 'abu-dawood', name: 'سنن أبي داود', nameEn: 'Sunan Abu Dawood', author: 'الإمام أبو داود', collectionName: 'abudawud' },
-    { slug: 'ibn-e-majah', name: 'سنن ابن ماجه', nameEn: 'Sunan Ibn-e-Majah', author: 'الإمام ابن ماجه', collectionName: 'ibnmajah' },
-    { slug: 'sunan-nasai', name: 'سنن النسائي', nameEn: "Sunan An-Nasa'i", author: 'الإمام النسائي', collectionName: 'nasai' },
-    { slug: 'mishkat', name: 'مشكاة المصابيح', nameEn: 'Mishkat Al-Masabih', author: 'الخطيب التبريزي', collectionName: 'mishkat' },
-    { slug: 'musnad-ahmad', name: 'مسند أحمد', nameEn: 'Musnad Ahmad', author: 'الإمام أحمد بن حنبل', collectionName: 'ahmad' },
-    { slug: 'al-silsila-sahiha', name: 'السلسلة الصحيحة', nameEn: 'Al-Silsila Sahiha', author: 'الشيخ الألباني', collectionName: null }
+    // Collections available in HadithTable.sql (SQLite import)
+    { slug: 'sahih-bukhari', name: 'صحيح البخاري', nameEn: 'Sahih al-Bukhari', author: 'الإمام البخاري', collectionName: 'bukhari', inSQL: true },
+    { slug: 'sahih-muslim', name: 'صحيح مسلم', nameEn: 'Sahih Muslim', author: 'الإمام مسلم', collectionName: 'muslim', inSQL: true },
+    { slug: 'abu-dawood', name: 'سنن أبي داود', nameEn: 'Sunan Abu Dawud', author: 'الإمام أبو داود', collectionName: 'abudawud', inSQL: true },
+    { slug: 'al-tirmidhi', name: 'جامع الترمذي', nameEn: "Jami' at-Tirmidhi", author: 'الإمام الترمذي', collectionName: 'tirmidhi', inSQL: true },
+    { slug: 'sunan-nasai', name: 'سنن النسائي', nameEn: "Sunan an-Nasa'i", author: 'الإمام النسائي', collectionName: 'nasai', inSQL: true },
+    { slug: 'ibn-e-majah', name: 'سنن ابن ماجه', nameEn: 'Sunan Ibn Majah', author: 'الإمام ابن ماجه', collectionName: 'ibnmajah', inSQL: true },
+    { slug: 'musnad-ahmad', name: 'مسند الإمام أحمد', nameEn: 'Musnad Ahmad', author: 'الإمام أحمد بن حنبل', collectionName: 'ahmad', inSQL: true },
+    { slug: 'bulugh', name: 'بلوغ المرام', nameEn: 'Bulugh al-Maram', author: 'الحافظ ابن حجر', collectionName: 'bulugh', inSQL: true },
+    { slug: 'riyadussalihin', name: 'رياض الصالحين', nameEn: 'Riyad as-Salihin', author: 'الإمام النووي', collectionName: 'riyadussalihin', inSQL: true },
+    { slug: 'shamail', name: 'شمائل الترمذي', nameEn: "Shama'il Muhammadiyah", author: 'الإمام الترمذي', collectionName: 'shamail', inSQL: true },
+    { slug: 'adab', name: 'الأدب المفرد', nameEn: 'Al-Adab Al-Mufrad', author: 'الإمام البخاري', collectionName: 'adab', inSQL: true },
+    { slug: 'mishkat', name: 'مشكاة المصابيح', nameEn: 'Mishkat al-Masabih', author: 'الخطيب التبريزي', collectionName: 'mishkat', inSQL: true },
+    { slug: 'forty', name: 'الأربعون النووية', nameEn: '40 Hadith Nawawi', author: 'الإمام النووي', collectionName: 'forty', inSQL: true },
+    { slug: 'hisn', name: 'حصن المسلم', nameEn: 'Hisn al-Muslim', author: 'سعيد بن وهف القحطاني', collectionName: 'hisn', inSQL: true }
   ];
 
   // Map UI slugs to provider slugs supported by hadithapi.com
@@ -29,12 +35,19 @@ function Hadith({ onClose }) {
   const hadithApiSlugMap = {
     'sahih-bukhari': 'sahih-bukhari',
     'sahih-muslim': 'sahih-muslim',
-    'al-tirmidhi': 'al-tirmidhi',
     'abu-dawood': 'abu-dawood',
-    'ibn-e-majah': 'ibn-e-majah',
+    'al-tirmidhi': 'al-tirmidhi',
     'sunan-nasai': 'sunan-nasai',
-    'mishkat': 'mishkat',
-    'musnad-ahmad': 'musnad-ahmad' // Musnad Ahmad is fully supported
+    'ibn-e-majah': 'ibn-e-majah',
+    'muwatta-malik': 'muwatta-malik',
+    'musnad-ahmad': 'musnad-ahmad',
+    'riyadussalihin': 'riyadussalihin',
+    'bulugh': 'bulugh',
+    'nawawi40': 'nawawi40',
+    'shamail': 'shamail',
+    'adab': 'adab',
+    'qudsi40': 'qudsi40',
+    'mishkat': 'mishkat'
     // 'al-silsila-sahiha' is NOT available on hadithapi -> will use fallback
   };
 
@@ -163,97 +176,38 @@ function Hadith({ onClose }) {
     setCurrentPage(page);
     
     try {
-      // Try sunnah.com API first (works for all books including Musnad Ahmad)
-      if (book.collectionName) {
-        try {
-          const response = await fetch(
-            `https://api.sunnah.com/v1/collections/${book.collectionName}/hadiths?limit=50&page=${page}`,
-            {
-              headers: {
-                'X-API-Key': API_KEY
-              }
-            }
-          );
-          
-          if (response.ok) {
-            const data = await response.json();
-            
-            if (data && data.data && data.data.length > 0) {
-              const formattedHadiths = data.data.map((h, idx) => ({
-                id: h.hadithNumber || `${book.slug}-${page}-${idx}`,
-                hadithNumber: h.hadithNumber || idx + 1,
-                chapterArabic: h.chapter?.ar || h.book?.name || '',
-                hadithArabic: h.hadith?.[0]?.body || h.hadithArabic || '',
-                hadithEnglish: h.hadith?.[1]?.body || h.hadithEnglish || null
-              }));
-              
-              const totalPages = data.total ? Math.ceil(data.total / 50) : data.last_page || 1;
-              console.log(`✅ Loaded ${formattedHadiths.length} hadiths from sunnah.com API. Total pages: ${totalPages}`);
-              
-              setHadiths(formattedHadiths);
-              setTotalPages(totalPages);
-              setLoading(false);
-              return;
-            }
-          }
-        } catch (err) {
-          console.log('Sunnah.com API error, trying hadithapi.com...', err.message);
-        }
+      // Use local API
+      const response = await fetch(
+        `${LOCAL_API_URL}/hadiths/${book.collectionName}?page=${page}&limit=50`
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       
-      // Fallback to hadithapi.com
-      const providerSlug = hadithApiSlugMap[book.slug];
-      if (providerSlug) {
-        const response = await fetch(
-          `https://hadithapi.com/api/hadiths?apiKey=${API_KEY}&book=${providerSlug}&paginate=50&page=${page}`
-        );
-        const data = await response.json();
-
-        if (data && data.hadiths && data.hadiths.data && data.hadiths.data.length > 0) {
-          const total = data.hadiths.total || data.total;
-          const perPage = data.hadiths.per_page || data.per_page || 50;
-          const lastPage = (
-            data.hadiths.last_page ||
-            (data.hadiths.meta && data.hadiths.meta.last_page) ||
-            (data.meta && data.meta.last_page) ||
-            (total && perPage ? Math.ceil(total / perPage) : 1)
-          );
-
-          console.log(`✅ Loaded ${data.hadiths.data.length} hadiths from hadithapi.com. Total pages: ${lastPage}`);
-          setHadiths(data.hadiths.data);
-          setTotalPages(lastPage || 1);
-        } else if (fallbackSamples[book.slug]) {
-          const pages = fallbackSamples[book.slug];
-          const safePage = Math.min(Math.max(page, 1), pages.length);
-          setHadiths([pages[safePage - 1]]);
-          setTotalPages(pages.length);
-        } else {
-          setHadiths([]);
-          setTotalPages(1);
-        }
-      } else {
-        // No API available -> use fallback
-        if (fallbackSamples[book.slug]) {
-          const pages = fallbackSamples[book.slug];
-          const safePage = Math.min(Math.max(page, 1), pages.length);
-          setHadiths([pages[safePage - 1]]);
-          setTotalPages(pages.length);
-        } else {
-          setHadiths([]);
-          setTotalPages(1);
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching hadiths:', error);
-      if (fallbackSamples[book.slug]) {
-        const pages = fallbackSamples[book.slug];
-        const safePage = Math.min(Math.max(page, 1), pages.length);
-        setHadiths([pages[safePage - 1]]);
-        setTotalPages(pages.length);
+      const data = await response.json();
+      
+      if (data && data.data && data.data.length > 0) {
+        const formattedHadiths = data.data.map((h) => ({
+          id: h.id,
+          hadithNumber: h.hadithNumber,
+          chapterArabic: h.chapterArabic || '',
+          hadithArabic: h.hadithArabic || '',
+          hadithEnglish: h.hadithEnglish || null
+        }));
+        
+        console.log(`✅ Loaded ${formattedHadiths.length} hadiths from local database`);
+        
+        setHadiths(formattedHadiths);
+        setTotalPages(data.pagination.totalPages || 1);
       } else {
         setHadiths([]);
         setTotalPages(1);
       }
+    } catch (error) {
+      console.error('Error fetching hadiths from local API:', error);
+      setHadiths([]);
+      setTotalPages(1);
     } finally {
       setLoading(false);
     }
