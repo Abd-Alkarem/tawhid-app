@@ -9,7 +9,7 @@ function Hadith({ onClose }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const LOCAL_API_URL = 'http://localhost:5001/api';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
 
   // Available hadith books - Only collections from local SQL database
   const books = [
@@ -178,7 +178,7 @@ function Hadith({ onClose }) {
     try {
       // Use local API
       const response = await fetch(
-        `${LOCAL_API_URL}/hadiths/${book.collectionName}?page=${page}&limit=50`
+        `${API_BASE_URL}/hadiths/${book.collectionName}?page=${page}&limit=50`
       );
       
       if (!response.ok) {
