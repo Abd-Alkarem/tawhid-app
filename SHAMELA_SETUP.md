@@ -39,9 +39,13 @@ Terminal 2 - Proxy Server:
 ```bash
 npm run server
 ```
+# Terminal 1
+cd server
+npm start
+
 
 git add .
-git commit -m "Fix warnings and add Tasbih counter feature"
+git commit -m "Fix"
 git push
 
 npm install @capacitor/core @capacitor/cli @capacitor/android

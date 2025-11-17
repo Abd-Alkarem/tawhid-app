@@ -1,0 +1,12 @@
+{
+  "1": {"ar": "كتاب الإيمان", "en": "The Book of Faith"},
+  "2": {"ar": "كتاب العلم", "en": "The Book of Knowledge"},
+  "3": {"ar": "كتاب الطهارة", "en": "The Book of Purification"},
+  "4": {"ar": "كتاب الصلاة", "en": "The Book of Prayer"},
+  "5": {"ar": "كتاب الجنائز", "en": "The Book of Funerals"},
+  "6": {"ar": "كتاب الزكاة", "en": "The Book of Zakat"},
+  "7": {"ar": "كتاب الصوم", "en": "The Book of Fasting"},
+  "8": {"ar": "كتاب الحج", "en": "The Book of Hajj"},
+  "9": {"ar": "كتاب البيوع", "en": "The Book of Business Transactions"},
+  "10": {"ar": "كتاب النكاح", "en": "The Book of Marriage"}
+}

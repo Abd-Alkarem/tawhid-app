@@ -1,0 +1,18 @@
+{
+  "1": {"ar": "كتاب الطهارة", "en": "The Book of Purification"},
+  "2": {"ar": "كتاب الصلاة", "en": "The Book of Prayer"},
+  "3": {"ar": "كتاب الجنائز", "en": "The Book of Funerals"},
+  "4": {"ar": "كتاب الزكاة", "en": "The Book of Zakat"},
+  "5": {"ar": "كتاب الصيام", "en": "The Book of Fasting"},
+  "6": {"ar": "كتاب الحج", "en": "The Book of Hajj"},
+  "7": {"ar": "كتاب البيوع", "en": "The Book of Business Transactions"},
+  "8": {"ar": "كتاب النكاح", "en": "The Book of Marriage"},
+  "9": {"ar": "كتاب الجنايات", "en": "The Book of Crimes"},
+  "10": {"ar": "كتاب الحدود", "en": "The Book of Legal Punishments"},
+  "11": {"ar": "كتاب الجهاد", "en": "The Book of Jihad"},
+  "12": {"ar": "كتاب الأطعمة", "en": "The Book of Foods"},
+  "13": {"ar": "كتاب الأيمان", "en": "The Book of Oaths"},
+  "14": {"ar": "كتاب القضاء", "en": "The Book of Judicial Rulings"},
+  "15": {"ar": "كتاب الأدب", "en": "The Book of Etiquette"},
+  "16": {"ar": "كتاب الدعاء", "en": "The Book of Supplications"}
+}

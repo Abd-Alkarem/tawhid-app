@@ -1,0 +1,16 @@
+{
+  "bukhari": "bukhari-books.json",
+  "muslim": "muslim-books.json",
+  "abudawud": "abudawud-books.json",
+  "tirmidhi": "tirmidhi-books.json",
+  "nasai": "nasai-books.json",
+  "ibnmajah": "ibnmajah-books.json",
+  "ahmad": "ahmad-books.json",
+  "bulugh": "bulugh-books.json",
+  "riyadussalihin": "riyadussalihin-books.json",
+  "shamail": "shamail-books.json",
+  "adab": "adab-books.json",
+  "mishkat": "mishkat-books.json",
+  "forty": "forty-books.json",
+  "hisn": "hisn-books.json"
+}

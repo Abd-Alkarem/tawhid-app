@@ -3,6 +3,27 @@ const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
+
+// Load book titles mappings
+const collectionsMappingFile = JSON.parse(fs.readFileSync(path.join(__dirname, 'collections-books.json'), 'utf8'));
+const bookMappings = {};
+
+// Load all book mappings
+Object.keys(collectionsMappingFile).forEach(collection => {
+  const mappingFile = collectionsMappingFile[collection];
+  if (mappingFile) {
+    try {
+      bookMappings[collection] = JSON.parse(fs.readFileSync(path.join(__dirname, mappingFile), 'utf8'));
+      console.log(`✅ Loaded book mappings for ${collection}`);
+    } catch (err) {
+      console.log(`⚠️  No book mappings found for ${collection}`);
+      bookMappings[collection] = null;
+    }
+  } else {
+    bookMappings[collection] = null;
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -58,6 +79,182 @@ app.get('/api/collections', (req, res) => {
   });
 });
 
+// Get books (كتاب) list for a collection
+app.get('/api/books/:collection', (req, res) => {
+  const { collection } = req.params;
+
+  const sql = `
+    SELECT DISTINCT
+      bookNumber,
+      MIN(CAST(hadithNumber AS INTEGER)) as startHadith,
+      MAX(CAST(hadithNumber AS INTEGER)) as endHadith,
+      COUNT(*) as hadithCount
+    FROM "HadithTable"
+    WHERE collection = ?
+    GROUP BY bookNumber
+    ORDER BY CAST(bookNumber AS INTEGER)
+  `;
+
+  db.all(sql, [collection], (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    // Check if this collection has chapters by checking if any book has non-empty babID
+    const checkChaptersSql = `
+      SELECT COUNT(*) as hasChapters
+      FROM "HadithTable"
+      WHERE collection = ? AND babID != 0 AND arabicBabName IS NOT NULL AND arabicBabName != ''
+      LIMIT 1
+    `;
+
+    db.get(checkChaptersSql, [collection], (err2, chapterCheck) => {
+      if (err2) {
+        res.status(500).json({ error: err2.message });
+        return;
+      }
+
+      const hasChapters = chapterCheck.hasChapters > 0;
+
+      // Add book titles from mapping
+      const booksWithTitles = rows.map(r => {
+        const mapping = bookMappings[collection];
+        const bookInfo = mapping && mapping[r.bookNumber]
+          ? mapping[r.bookNumber]
+          : { ar: `كتاب ${r.bookNumber}`, en: `Book ${r.bookNumber}` };
+        
+        return {
+          bookNumber: r.bookNumber,
+          bookTitleArabic: bookInfo.ar,
+          bookTitleEnglish: bookInfo.en,
+          startHadith: r.startHadith,
+          endHadith: r.endHadith,
+          hadithCount: r.hadithCount,
+          hasChapters: hasChapters
+        };
+      });
+
+      res.json({ data: booksWithTitles });
+    });
+  });
+});
+
+// Get chapters (أبواب) within a book
+app.get('/api/chapters/:collection/book/:bookNumber', (req, res) => {
+  const { collection, bookNumber } = req.params;
+
+  const sql = `
+    SELECT DISTINCT
+      bookNumber,
+      babID,
+      arabicBabNumber,
+      englishBabNumber,
+      arabicBabName as chapterArabic,
+      englishBabName as chapterEnglish,
+      MIN(CAST(hadithNumber AS INTEGER)) as startHadith,
+      MAX(CAST(hadithNumber AS INTEGER)) as endHadith,
+      COUNT(*) as hadithCount
+    FROM "HadithTable"
+    WHERE collection = ? AND bookNumber = ?
+    GROUP BY bookNumber, babID, arabicBabName, englishBabName
+    ORDER BY babID
+  `;
+
+  db.all(sql, [collection, bookNumber], (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    const cleanRows = rows.map(r => ({
+      ...r,
+      chapterArabic: cleanText(r.chapterArabic),
+      chapterEnglish: cleanText(r.chapterEnglish)
+    }));
+
+    res.json({ data: cleanRows });
+  });
+});
+
+// Get hadiths directly by collection and book number (for collections without chapters)
+app.get('/api/hadiths/:collection/book/:bookNumber', (req, res) => {
+  const { collection, bookNumber } = req.params;
+
+  const sql = `
+    SELECT 
+      ourHadithNumber as id,
+      hadithNumber,
+      bookNumber,
+      babID,
+      arabicBabName as chapterArabic,
+      arabicText as hadithArabic,
+      englishBabName as chapterEnglish,
+      englishText as hadithEnglish,
+      arabicgrade1 as gradeArabic,
+      englishgrade1 as gradeEnglish
+    FROM "HadithTable"
+    WHERE collection = ? AND bookNumber = ?
+    ORDER BY CAST(hadithNumber AS INTEGER)
+  `;
+
+  db.all(sql, [collection, bookNumber], (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    const cleanRows = rows.map(r => ({
+      ...r,
+      chapterArabic: cleanText(r.chapterArabic),
+      hadithArabic: cleanText(r.hadithArabic),
+      chapterEnglish: cleanText(r.chapterEnglish),
+      hadithEnglish: cleanText(r.hadithEnglish)
+    }));
+
+    res.json({ data: cleanRows });
+  });
+});
+
+// Get hadiths by collection, book number, and bab ID
+app.get('/api/hadiths/:collection/book/:bookNumber/bab/:babID', (req, res) => {
+  const { collection, bookNumber, babID } = req.params;
+
+  const sql = `
+    SELECT 
+      ourHadithNumber as id,
+      hadithNumber,
+      bookNumber,
+      babID,
+      arabicBabName as chapterArabic,
+      arabicText as hadithArabic,
+      englishBabName as chapterEnglish,
+      englishText as hadithEnglish,
+      arabicgrade1 as gradeArabic,
+      englishgrade1 as gradeEnglish
+    FROM "HadithTable"
+    WHERE collection = ? AND bookNumber = ? AND babID = ?
+    ORDER BY CAST(hadithNumber AS INTEGER)
+  `;
+
+  db.all(sql, [collection, bookNumber, babID], (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+
+    const cleanRows = rows.map(r => ({
+      ...r,
+      chapterArabic: cleanText(r.chapterArabic),
+      hadithArabic: cleanText(r.hadithArabic),
+      chapterEnglish: cleanText(r.chapterEnglish),
+      hadithEnglish: cleanText(r.hadithEnglish)
+    }));
+
+    res.json({ data: cleanRows });
+  });
+});
+
 // Get hadiths by collection with pagination
 app.get('/api/hadiths/:collection', (req, res) => {
   const { collection } = req.params;
@@ -88,7 +285,7 @@ app.get('/api/hadiths/:collection', (req, res) => {
           englishgrade1 as gradeEnglish
         FROM "HadithTable"
         WHERE collection = ?
-        ORDER BY ourHadithNumber
+        ORDER BY CAST(hadithNumber AS INTEGER)
         LIMIT ? OFFSET ?
       `;
 
@@ -158,7 +355,7 @@ app.get('/api/search', (req, res) => {
     params.push(collection);
   }
 
-  sql += ` ORDER BY ourHadithNumber LIMIT ? OFFSET ?`;
+  sql += ` ORDER BY collection, CAST(hadithNumber AS INTEGER) LIMIT ? OFFSET ?`;
   params.push(limit, offset);
 
   db.all(sql, params, (err, rows) => {
@@ -236,6 +433,9 @@ app.listen(PORT, () => {
   console.log(`\nAvailable endpoints:`);
   console.log(`  GET  /api/health`);
   console.log(`  GET  /api/collections`);
+  console.log(`  GET  /api/books/:collection`);
+  console.log(`  GET  /api/chapters/:collection/book/:bookNumber`);
+  console.log(`  GET  /api/hadiths/:collection/book/:bookNumber/bab/:babID`);
   console.log(`  GET  /api/hadiths/:collection?page=1&limit=50`);
   console.log(`  GET  /api/search?q=prayer&collection=bukhari`);
   console.log(`  GET  /api/hadith/:id`);
